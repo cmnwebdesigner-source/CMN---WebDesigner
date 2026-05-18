@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ro" class="scroll-smooth bg-[#000000]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>CMN WebDesigner | Design Web Premium</title>
+    <meta name="description" content="Design curat. Aspect premium. Optimizate pentru telefon. Lansăm afacerea ta online la cel mai înalt standard.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="CMN WebDesigner | Design Web Premium">
+    <meta property="og:description" content="Creăm site-uri moderne pentru afaceri mici.">
+    <meta property="og:image" content="https://placehold.co/1200x630/000000/FFE600?text=CMN+WebDesigner">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "CMN WebDesigner",
+      "description": "Servicii de web design premium.",
+      "url": "https://cmnwebdesigner.ro",
+      "address": { "@type": "PostalAddress", "addressCountry": "RO" }
+    }
+    </script>
+
+    <!-- Google Fonts: Syne & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#000000',
+                        surface: '#080808',
+                        surfaceLight: '#121212',
+                        yellow: {
+                            DEFAULT: '#FFE600',
+                            light: '#FFF066',
+                            dark: '#CCB800',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'glow': 'glow 6s ease-in-out infinite alternate',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { opacity: '0.2', transform: 'scale(1)' },
+                            '100%': { opacity: '0.5', transform: 'scale(1.2)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Custom Smooth Cursor --- */
+        @media (pointer: fine) {
+            body, a, button { cursor: none !important; }
+        }
+
+        .cursor-inner {
+            position: fixed;
+            top: 0; left: 0;
+            width: 6px; height: 6px;
+            background-color: #FFE600;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s;
+        }
+
+        .cursor-outer {
+            position: fixed;
+            top: 0; left: 0;
+            width: 34px; height: 34px;
+            border: 1.5px solid rgba(255, 230, 0, 0.6);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s, height 0.3s, background-color 0.3s, border-color 0.3s;
+            will-change: transform;
+        }
+
+        /* Efect de Hover pe Cursor */
+        .cursor-hover.cursor-outer {
+            width: 60px; height: 60px;
+            background-color: rgba(255, 230, 0, 0.1);
+            border-color: transparent;
+            backdrop-filter: blur(2px);
+        }
+        .cursor-hover.cursor-inner {
+            width: 0px; height: 0px;
+        }
+
+        @media (pointer: coarse) {
+            .cursor-inner, .cursor-outer { display: none !important; }
+            body, a, button { cursor: auto !important; }
+        }
+
+        /* --- Grid Background Subtil --- */
+        .bg-grid-pattern {
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+        }
+
+        /* --- Typography & Text Effects --- */
+        .text-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .group:hover .text-outline, a:hover .text-outline {
+            color: #FFE600;
+            -webkit-text-stroke: 1px #FFE600;
+        }
+
+        /* --- Animatii Reveal la Scroll --- */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        /* --- Cards Hover Effects (Bento) --- */
+        .bento-card {
+            background: #080808;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #FFE600, transparent);
+            transform: translateX(-100%);
+            transition: transform 0.7s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 230, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(255, 230, 0, 0.05);
+        }
+
+        .bento-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* --- Marquee Fără Bug --- */
+        .marquee-container {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+            background: #050505;
+            white-space: nowrap;
+        }
+        
+        .marquee-content {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            animation: marquee-scroll 25s linear infinite;
+        }
+
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Scrollbar Invizibila/Eleganta */
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000000; }
+        ::-webkit-scrollbar-thumb { background: #222; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FFE600; }
+
+        /* Portofoliu Imagine Hover Avansat */
+        .portfolio-img-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+        .portfolio-img-wrapper img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+            transform: scale(1);
+            transform-origin: center;
+            will-change: transform;
+        }
+        .portfolio-card:hover .portfolio-img-wrapper img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-yellow selection:text-black">
+
+    <!-- Custom Cursor -->
+    <div class="cursor-outer" id="cursor-outer"></div>
+    <div class="cursor-inner" id="cursor-inner"></div>
+
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 px-6 md:px-12 border-b border-transparent">
+        <div class="max-w-[1600px] mx-auto flex justify-between items-center">
+            
+            <!-- Logo Top -->
+            <a href="#" class="relative z-50 flex items-center gap-3 group transition-transform hover:scale-105 hover-trigger">
+                <div class="w-2.5 h-2.5 bg-yellow rounded-full animate-pulse shadow-[0_0_10px_rgba(255,230,0,0.8)]"></div>
+                <span class="text-xl md:text-2xl font-display font-bold tracking-tight text-white leading-none uppercase">CMN <span class="font-light text-yellow">WebDesigner</span></span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center space-x-10 bg-surface/80 backdrop-blur-md px-8 py-3.5 rounded-full border border-white/5 shadow-lg">
+                <a href="#servicii" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Servicii</a>
+                <a href="#portofoliu" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Portofoliu</a>
+                <a href="#despre" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Despre</a>
+                <a href="#preturi" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Prețuri</a>
+            </nav>
+
+            <!-- Buton Contact Desktop -->
+            <div class="hidden md:block relative z-50">
+                <a href="#contact" class="hover-trigger px-7 py-3.5 bg-white text-black font-sans text-xs font-bold uppercase tracking-[0.1em] rounded-full hover:bg-yellow hover:scale-105 hover:shadow-[0_0_20px_rgba(255,230,0,0.4)] transition-all duration-300 flex items-center gap-2">
+                    Start Proiect
+                </a>
+            </div>
+
+            <!-- Mobile Menu Btn -->
+            <button id="mobile-btn" class="md:hidden w-12 h-12 flex flex-col items-end justify-center gap-[6px] z-[60] relative group hover-trigger">
+                <span class="block w-8 h-[2px] bg-white transition-transform duration-300"></span>
+                <span class="block w-5 h-[2px] bg-yellow group-hover:w-8 transition-all duration-300"></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#000000] z-40 flex flex-col justify-center px-8 opacity-0 pointer-events-none transition-all duration-500">
+            <div class="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
+            
+            <nav class="flex flex-col space-y-8 relative z-10">
+                <a href="#servicii" class="mobile-link text-5xl font-display font-bold text-white hover:text-yellow transition-colors">Servicii<span class="text-yellow">.</span></a>
+                <a href="#portofoliu" class="mobile-link text-5xl font-display font-bold text-white hover:text-yellow transition-colors">Portofoliu<span class="text-yellow">.</span></a>
+                <a href="#despre" class="mobile-link text-5xl font-display font-bold text-white hover:text-yellow transition-colors">Despre<span class="text-yellow">.</span></a>
+                <a href="#preturi" class="mobile-link text-5xl font-display font-bold text-white hover:text-yellow transition-colors">Prețuri<span class="text-yellow">.</span></a>
+            </nav>
+            <div class="absolute bottom-12 left-8 flex gap-6 z-10">
+                <a href="https://www.tiktok.com/@cmnwebdesigner" target="_blank" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=61589942400308" target="_blank" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-10 overflow-hidden">
+            <!-- Background Elements -->
+            <div class="absolute inset-0 bg-grid-pattern opacity-50 z-0"></div>
+            <!-- Glow subtil galben -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-yellow/10 rounded-full blur-[150px] pointer-events-none z-0 animate-glow"></div>
+
+            <div class="max-w-[1600px] mx-auto px-6 md:px-12 relative z-10 w-full text-center flex flex-col items-center">
+
+                <!-- Text Masiv -->
+                <h1 class="text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] font-display font-bold leading-[0.9] tracking-tight mb-8 mt-10">
+                    <span class="block reveal-up text-yellow">CREEZ SITE-URI</span>
+                    <span class="block reveal-up reveal-delay-1">MODERNE PENTRU</span>
+                    <span class="block reveal-up reveal-delay-2 text-yellow">AFACERI MICI.</span>
+                </h1>
+
+                <p class="reveal-up reveal-delay-2 text-base md:text-xl font-sans font-light text-gray-400 max-w-2xl mx-auto mb-14">
+                    Design impecabil. Aspect premium. Optimizate 100% pentru telefon. Lansăm afacerea ta online la standarde de top, fără compromisuri.
+                </p>
+
+                <div class="reveal-up reveal-delay-3 flex flex-col sm:flex-row gap-6 items-center">
+                    <a href="#portofoliu" class="hover-trigger group relative px-10 py-4 bg-transparent border border-white/20 text-white rounded-full font-sans text-sm font-bold uppercase tracking-[0.1em] overflow-hidden hover:border-yellow hover:text-yellow hover:scale-105 transition-all duration-300">
+                        Vezi Lucrările
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marquee Premium Fără Bug-uri (Reparat complet pentru orice ecran) -->
+        <div class="marquee-container border-y border-white/10 py-6 relative z-30 shadow-[0_0_30px_rgba(0,0,0,0.8)] mt-12 mb-12">
+            <!-- Setul 1 (Multiplicat pentru a acoperi chiar și ecrane foarte late fără tăieturi) -->
+            <div class="marquee-content gap-10 md:gap-16 pr-10 md:pr-16">
+                <div class="flex items-center gap-4"><i class="fas fa-gem text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Design Premium</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-mobile-screen text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Mobile First</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-bolt text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Fără Buguri</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-headset text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Suport Dedicat</span></div>
+                
+                <div class="flex items-center gap-4"><i class="fas fa-gem text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Design Premium</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-mobile-screen text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Mobile First</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-bolt text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Fără Buguri</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-headset text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Suport Dedicat</span></div>
+                
+                <div class="flex items-center gap-4"><i class="fas fa-gem text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Design Premium</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-mobile-screen text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Mobile First</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-bolt text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Fără Buguri</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-headset text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Suport Dedicat</span></div>
+            </div>
+            <!-- Setul 2 (Duplicat exact pentru buclă infinită invizibilă) -->
+            <div class="marquee-content gap-10 md:gap-16 pr-10 md:pr-16" aria-hidden="true">
+                <div class="flex items-center gap-4"><i class="fas fa-gem text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Design Premium</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-mobile-screen text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Mobile First</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-bolt text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Fără Buguri</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-headset text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Suport Dedicat</span></div>
+                
+                <div class="flex items-center gap-4"><i class="fas fa-gem text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Design Premium</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-mobile-screen text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Mobile First</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-bolt text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Fără Buguri</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-headset text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Suport Dedicat</span></div>
+                
+                <div class="flex items-center gap-4"><i class="fas fa-gem text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Design Premium</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-mobile-screen text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Mobile First</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-bolt text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Fără Buguri</span></div>
+                <div class="flex items-center gap-4"><i class="fas fa-headset text-yellow text-sm"></i><span class="text-xs md:text-sm font-display font-bold tracking-[0.2em] text-white uppercase">Suport Dedicat</span></div>
+            </div>
+        </div>
+
+        <section id="servicii" class="py-24 md:py-32 px-6 md:px-12 relative">
+            <div class="max-w-[1600px] mx-auto">
+                <div class="mb-20 reveal-up flex flex-col md:flex-row justify-between items-end gap-6">
+                    <h2 class="text-5xl md:text-7xl font-display font-bold leading-none">Ce putem <br><span class="text-yellow">construi.</span></h2>
+                    <p class="text-gray-400 font-sans max-w-sm text-sm leading-relaxed">Nu facem doar site-uri. Creăm experiențe digitale gândite să convertească vizitatorii în clienți reali pentru afacerea ta.</p>
+                </div>
+
+                <!-- Bento Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+                    
+                    <!-- Card Mare -->
+                    <div class="bento-card rounded-3xl p-8 md:p-10 md:col-span-2 flex flex-col justify-between hover-trigger reveal-up">
+                        <div class="flex justify-between items-start">
+                            <span class="text-yellow text-4xl animate-float block"><i class="fas fa-laptop-code"></i></span>
+                            <span class="text-xs font-sans tracking-[0.2em] text-gray-500 uppercase">01</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl md:text-4xl font-display font-bold mb-3">Site-uri de Prezentare</h3>
+                            <p class="text-gray-400 font-sans text-sm md:text-base max-w-md">Design modern, structură clară și pagini dedicate afacerii tale. Perfect pentru a-ți afișa serviciile cu mândrie.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card Mic 1 -->
+                    <div class="bento-card rounded-3xl p-8 flex flex-col justify-between hover-trigger reveal-up reveal-delay-1">
+                        <div class="flex justify-between items-start">
+                            <span class="text-white transition-colors text-3xl animate-float block"><i class="fas fa-mobile-alt"></i></span>
+                            <span class="text-xs font-sans tracking-[0.2em] text-gray-500 uppercase">02</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Mobile First</h3>
+                            <p class="text-gray-400 font-sans text-sm">Adaptare perfectă pe orice ecran. Peste 80% din vizitatori sunt pe telefon.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card Mic 2 -->
+                    <div class="bento-card rounded-3xl p-8 flex flex-col justify-between hover-trigger reveal-up">
+                        <div class="flex justify-between items-start">
+                            <span class="text-white transition-colors text-3xl animate-float block"><i class="fas fa-images"></i></span>
+                            <span class="text-xs font-sans tracking-[0.2em] text-gray-500 uppercase">03</span>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Portofoliu & Galerie</h3>
+                            <p class="text-gray-400 font-sans text-sm">Afișează-ți munca într-un mod spectaculos cu încărcare instantă.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card Mare 2 -->
+                    <div class="bento-card rounded-3xl p-8 md:p-10 md:col-span-2 flex flex-col justify-between hover-trigger reveal-up reveal-delay-1">
+                        <div class="flex justify-between items-start">
+                            <span class="text-yellow text-4xl animate-float block"><i class="fas fa-qrcode"></i></span>
+                            <span class="text-xs font-sans tracking-[0.2em] text-gray-500 uppercase">04</span>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-6 justify-between items-end">
+                            <div>
+                                <h3 class="text-3xl md:text-4xl font-display font-bold mb-3">Integrări Smart</h3>
+                                <p class="text-gray-400 font-sans text-sm md:text-base max-w-md">Legături Social Media fluide și generare de Cod QR pentru salonul sau locația ta fizică.</p>
+                            </div>
+                            <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center transition-transform duration-300">
+                                <i class="fas fa-qrcode text-black text-3xl"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="portofoliu" class="py-32 px-6 md:px-12 bg-surfaceLight border-y border-white/5">
+            <div class="max-w-[1600px] mx-auto">
+                
+                <div class="mb-20 text-center reveal-up">
+                    <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">Lucrări <span class="text-outline">Recente</span></h2>
+                    <p class="text-gray-400 font-sans text-sm tracking-[0.2em] uppercase">Studii de caz & Exemple</p>
+                </div>
+
+                <!-- Vertical Cinematic List -->
+                <div class="space-y-16 md:space-y-32">
+                    
+                    <!-- Proiect 1 - Frizerie -->
+                    <div class="portfolio-card group flex flex-col md:flex-row items-center gap-8 md:gap-16 hover-trigger reveal-up">
+                        <div class="w-full md:w-3/5 portfolio-img-wrapper rounded-[2rem] aspect-[4/3] md:aspect-[16/9] relative shadow-2xl shadow-black/80">
+                            <div class="absolute inset-0 bg-black/30 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop" alt="Salon Frizerie" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-full md:w-2/5 flex flex-col">
+                            <span class="text-yellow text-xs font-sans tracking-[0.2em] uppercase mb-4">Design / Dezvoltare</span>
+                            <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 group-hover:text-yellow transition-colors">Salon Frizerie</h3>
+                            <p class="text-gray-400 font-sans text-sm leading-relaxed mb-8">Un website modern axat pe prezentarea serviciilor de frizerie și atragerea programărilor, cu un design dark-mode elegant.</p>
+                            <a href="https://www.tiktok.com/@cmnwebdesigner" target="_blank" class="text-white text-sm font-sans border-b border-white/30 w-fit pb-1 hover:border-yellow hover:text-yellow transition-all relative z-20">Vezi pe TikTok <i class="fab fa-tiktok ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Proiect 2 - Makeup -->
+                    <div class="portfolio-card group flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 hover-trigger reveal-up">
+                        <div class="w-full md:w-3/5 portfolio-img-wrapper rounded-[2rem] aspect-[4/3] md:aspect-[16/9] relative shadow-2xl shadow-black/80">
+                            <div class="absolute inset-0 bg-black/30 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=1200" alt="Elena MakeUp Studio" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-full md:w-2/5 flex flex-col items-start md:items-end md:text-right">
+                            <span class="text-yellow text-xs font-sans tracking-[0.2em] uppercase mb-4">Design / Portofoliu</span>
+                            <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 group-hover:text-yellow transition-colors">Elena MakeUp Studio</h3>
+                            <p class="text-gray-400 font-sans text-sm leading-relaxed mb-8">Un site de prezentare premium (One-Page) realizat pentru un artist de makeup. Design dark-theme cu accente premium, focusat pe vizual și eleganță.</p>
+                            <a href="https://www.tiktok.com/@cmnwebdesigner" target="_blank" class="text-white text-sm font-sans border-b border-white/30 w-fit pb-1 group-hover:border-yellow group-hover:text-yellow transition-colors cursor-pointer">Vezi pe TikTok <i class="fab fa-tiktok ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Proiect 3 - Tattoo -->
+                    <div class="portfolio-card group flex flex-col md:flex-row items-center gap-8 md:gap-16 hover-trigger reveal-up">
+                        <div class="w-full md:w-3/5 portfolio-img-wrapper rounded-[2rem] aspect-[4/3] md:aspect-[16/9] relative shadow-2xl shadow-black/80">
+                            <div class="absolute inset-0 bg-black/30 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                            <img src="https://images.unsplash.com/photo-1598371839696-5c5bb00bdc28?q=80&w=1200&auto=format&fit=crop" alt="Tattoo Artist" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-full md:w-2/5 flex flex-col">
+                            <span class="text-yellow text-xs font-sans tracking-[0.2em] uppercase mb-4">Portofoliu / Booking</span>
+                            <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 group-hover:text-yellow transition-colors">Tattoo Artist</h3>
+                            <p class="text-gray-400 font-sans text-sm leading-relaxed mb-8">Design îndrăzneț și asimetric pentru un studio de tatuaje, cu integrare directă către conturile de social media.</p>
+                            <a href="https://www.tiktok.com/@cmnwebdesigner" target="_blank" class="text-white text-sm font-sans border-b border-white/30 w-fit pb-1 group-hover:border-yellow group-hover:text-yellow transition-colors cursor-pointer">Vezi pe TikTok <i class="fab fa-tiktok ml-2 text-xs"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="despre" class="py-32 px-6 md:px-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow/5 rounded-full blur-[100px] pointer-events-none animate-glow"></div>
+
+            <div class="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center relative z-10">
+                
+                <div class="reveal-up">
+                    <h2 class="text-4xl md:text-6xl font-display font-bold mb-8 leading-[1.1]">
+                        Construim online,<br>
+                        <span class="text-yellow">creștem afaceri.</span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-gray-400 font-sans text-base md:text-lg font-light leading-relaxed">
+                        <p>
+                            Sunt <strong>CMN WebDesigner</strong>, dedicat exclusiv afacerilor locale și micilor antreprenori care doresc o imagine digitală cu adevărat premium.
+                        </p>
+                        <p>
+                            Nu mă bazez pe template-uri plictisitoare. Fiecare site este desenat cu atenție la detalii, optimizat la perfecție pentru telefon și construit să funcționeze impecabil. Ofer calitatea agențiilor mari, adaptată nevoilor tale reale.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Stats Premium Grid -->
+                <div class="grid grid-cols-2 gap-4 reveal-up reveal-delay-1">
+                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2">100<span class="text-yellow">%</span></span>
+                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Design Custom</span>
+                    </div>
+                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2"><i class="fas fa-mobile-alt text-yellow"></i></span>
+                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Mobile First</span>
+                    </div>
+                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2">SEO</span>
+                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Structură Curată</span>
+                    </div>
+                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2"><i class="fas fa-headset text-yellow"></i></span>
+                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Suport Dedicat</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="preturi" class="py-32 px-6 md:px-12 bg-surfaceLight border-y border-white/5 relative">
+            <div class="max-w-[1600px] mx-auto">
+                <div class="mb-20 text-center reveal-up">
+                    <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">Pachete & <span class="text-yellow">Prețuri</span></h2>
+                    <p class="text-gray-400 font-sans text-sm tracking-[0.2em] uppercase">Transparență Totală</p>
+                </div>
+
+                <!-- Pricing Cards -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
+                    
+                    <!-- Card 1: Site de Prezentare -->
+                    <div class="bento-card rounded-3xl p-8 md:p-10 flex flex-col justify-between reveal-up hover-trigger">
+                        <div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Site de prezentare</h3>
+                            <p class="text-gray-400 font-sans text-sm mb-8">Perfect pentru afaceri locale la început de drum.</p>
+                            <div class="text-4xl md:text-5xl font-display font-bold text-white mb-8">
+                                <span class="text-lg md:text-xl text-gray-500 font-light">de la</span> 300 <span class="text-yellow text-2xl">lei</span>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <span class="inline-block px-5 py-2.5 bg-white/5 text-gray-300 text-xs font-sans tracking-[0.1em] rounded-full uppercase border border-white/10">Design Curat & Rapid</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Site Premium Modern -->
+                    <div class="bento-card rounded-3xl p-8 md:p-10 flex flex-col justify-between reveal-up reveal-delay-1 border border-yellow/30 relative overflow-hidden group shadow-[0_0_30px_rgba(255,230,0,0.05)] hover-trigger">
+                        <!-- Badge Recomandat -->
+                        <div class="absolute top-0 right-0 bg-yellow text-black text-[10px] font-bold uppercase tracking-wider py-1.5 px-6 rounded-bl-xl shadow-lg">Recomandat</div>
+                        
+                        <div>
+                            <h3 class="text-2xl font-display font-bold mb-2 text-yellow">Site premium modern</h3>
+                            <p class="text-gray-400 font-sans text-sm mb-8">Pentru branduri care doresc o imagine de nivel agenție.</p>
+                            <div class="text-4xl md:text-5xl font-display font-bold text-white mb-8">
+                                <span class="text-lg md:text-xl text-gray-500 font-light">de la</span> 500 <span class="text-yellow text-2xl">lei</span>
+                            </div>
+                        </div>
+                        <div class="mt-auto">
+                            <span class="inline-block px-5 py-2.5 bg-yellow/10 text-yellow text-xs font-sans tracking-[0.1em] rounded-full uppercase border border-yellow/20 group-hover:bg-yellow/20 transition-colors">Animații & Experiență VIP</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <!-- Notes / Disclaimers -->
+                <div class="max-w-3xl mx-auto text-center reveal-up reveal-delay-2">
+                    <div class="bg-[#080808] border border-white/5 rounded-2xl p-6 md:p-8 font-sans text-sm text-gray-400 leading-relaxed text-left md:text-center shadow-inner">
+                        <p class="mb-3"><i class="fas fa-info-circle text-yellow mr-2"></i> Momentan nu ofer configurare pentru domeniile clasice (.ro / .com) pentru a păstra prețurile finale cât mai accesibile. Site-ul tău va rula gratuit pe platforme profesionale cloud de înaltă performanță.</p>
+                        <p class="text-xs text-gray-500"><i class="fas fa-asterisk text-yellow mr-1 text-[10px]"></i> Prețul diferă în funcție de complexitate (numărul de secțiuni, cantitatea de conținut sau animațiile dorite).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-40 px-6 md:px-12 bg-[#000000] border-t border-white/5 text-center relative overflow-hidden">
+            <!-- Glow background animate -->
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-[300px] bg-yellow/10 blur-[150px] pointer-events-none animate-glow"></div>
+
+            <div class="max-w-4xl mx-auto reveal-up relative z-10">
+                <span class="text-xs font-sans tracking-[0.3em] text-yellow uppercase block mb-6">Proiectul Tău Începe Aici</span>
+                
+                <h2 class="text-6xl md:text-[8rem] font-display font-bold leading-none mb-12">
+                    <span class="text-outline">SĂ</span> LUCRĂM.
+                </h2>
+                
+                <div class="mt-20 flex justify-center gap-12 hover-trigger">
+                    <a href="https://www.tiktok.com/@cmnwebdesigner" target="_blank" class="text-gray-500 hover:text-yellow hover:-translate-y-2 transition-all text-3xl"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=61589942400308" target="_blank" class="text-gray-500 hover:text-yellow hover:-translate-y-2 transition-all text-3xl"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-yellow hover:-translate-y-2 transition-all text-3xl"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-10 bg-[#000000] border-t border-white/5">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <span class="text-lg font-display font-bold text-white leading-none">CMN</span>
+            </div>
+            <p class="text-gray-600 font-sans text-[10px] md:text-xs uppercase tracking-[0.2em]">
+                &copy; <span id="year"></span> CMN WebDesigner. Toate drepturile rezervate.
+            </p>
+            <div class="text-[10px] font-sans tracking-[0.2em] uppercase text-gray-600">
+                Design <i class="fas fa-bolt text-yellow mx-1 animate-pulse"></i> România
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Setare an
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Custom Smooth Follower Cursor ---
+            const cursorOuter = document.getElementById('cursor-outer');
+            const cursorInner = document.getElementById('cursor-inner');
+            const hoverTriggers = document.querySelectorAll('.hover-trigger, a, button, .bento-card, .portfolio-card');
+            
+            let mouseX = 0, mouseY = 0;
+            let outerX = 0, outerY = 0;
+
+            if (window.matchMedia('(pointer: fine)').matches) {
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    
+                    // Inelul interior se mută instantaneu
+                    cursorInner.style.transform = `translate3d(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%), 0)`;
+                });
+
+                // Funcție pentru animația fluidă a inelului exterior
+                const renderCursor = () => {
+                    outerX += (mouseX - outerX) * 0.15; // Viteza de urmărire (smoothness)
+                    outerY += (mouseY - outerY) * 0.15;
+                    
+                    cursorOuter.style.transform = `translate3d(calc(${outerX}px - 50%), calc(${outerY}px - 50%), 0)`;
+                    requestAnimationFrame(renderCursor);
+                };
+                requestAnimationFrame(renderCursor);
+
+                // Efect de Hover
+                hoverTriggers.forEach(trigger => {
+                    trigger.addEventListener('mouseenter', () => {
+                        cursorOuter.classList.add('cursor-hover');
+                        cursorInner.classList.add('cursor-hover');
+                    });
+                    trigger.addEventListener('mouseleave', () => {
+                        cursorOuter.classList.remove('cursor-hover');
+                        cursorInner.classList.remove('cursor-hover');
+                    });
+                });
+            }
+
+            // --- Navbar Sticky cu Blur ---
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('bg-[#000000]/80', 'backdrop-blur-md', 'border-white/5');
+                    navbar.classList.remove('border-transparent');
+                } else {
+                    navbar.classList.remove('bg-[#000000]/80', 'backdrop-blur-md', 'border-white/5');
+                    navbar.classList.add('border-transparent');
+                }
+            });
+
+            // --- Meniu Mobile ---
+            const mobileBtn = document.getElementById('mobile-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const lines = mobileBtn.querySelectorAll('span');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    
+                    lines[0].style.transform = 'translateY(4px) rotate(45deg)';
+                    lines[1].style.width = '32px';
+                    lines[1].style.transform = 'translateY(-4px) rotate(-45deg)';
+                    
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    
+                    lines[0].style.transform = 'none';
+                    lines[1].style.width = '20px';
+                    lines[1].style.transform = 'none';
+                    
+                    document.body.style.overflow = 'auto';
+                }
+            }
+
+            mobileBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
+
+            // --- Intersection Observer pentru Fade/Reveal (Scroll Animation) ---
+            const revealElements = document.querySelectorAll('.reveal-up');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            revealElements.forEach(el => observer.observe(el));
+
+            // Declanșează animațiile din prima secțiune la încărcare
+            setTimeout(() => {
+                document.querySelectorAll('section:first-of-type .reveal-up').forEach(el => {
+                    el.classList.add('active');
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
