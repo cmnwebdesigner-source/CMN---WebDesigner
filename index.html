@@ -234,6 +234,224 @@
             transform: scale(1.08);
             filter: brightness(1.1);
         }
+
+
+        /* --- Mobile-only refinements: laptop/desktop ramane neschimbat --- */
+        @media (max-width: 767px) {
+            html, body {
+                width: 100%;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            #navbar {
+                padding: 1rem 1.25rem;
+            }
+
+            #navbar > div > div:first-child a span {
+                font-size: clamp(1rem, 5.2vw, 1.35rem);
+                letter-spacing: -0.03em;
+                white-space: nowrap;
+            }
+
+            #mobile-menu {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(2.1rem, 10vw, 3rem) !important;
+                line-height: 0.95;
+            }
+
+            #mobile-menu .absolute.bottom-12 {
+                left: 1.5rem;
+                right: 1.5rem;
+                bottom: 2rem;
+                justify-content: center;
+                gap: 1.35rem;
+            }
+
+            #mobile-menu .absolute.bottom-12 a {
+                font-size: 1.75rem !important;
+            }
+
+            main > section:first-child {
+                min-height: 100svh;
+                padding-top: 6.5rem;
+                padding-bottom: 3rem;
+            }
+
+            main > section:first-child h1 {
+                font-size: clamp(2.7rem, 13.2vw, 4.5rem) !important;
+                line-height: 0.9;
+                margin-top: 1.5rem;
+                margin-bottom: 1.5rem;
+                letter-spacing: -0.05em;
+            }
+
+            main > section:first-child p {
+                font-size: 1rem;
+                line-height: 1.65;
+                max-width: 22rem;
+                margin-bottom: 2.25rem;
+            }
+
+            main > section:first-child a {
+                width: 100%;
+                max-width: 20rem;
+                text-align: center;
+                padding: 0.95rem 1.25rem;
+            }
+
+            .marquee-container {
+                margin-top: 1.5rem !important;
+                margin-bottom: 1.5rem !important;
+                padding-top: 1rem !important;
+                padding-bottom: 1rem !important;
+            }
+
+            #servicii,
+            #portofoliu,
+            #despre,
+            #preturi,
+            #contact {
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
+                padding-top: 5rem !important;
+                padding-bottom: 5rem !important;
+            }
+
+            #contact {
+                padding-bottom: 8rem !important;
+            }
+
+            #servicii h2,
+            #portofoliu h2,
+            #preturi h2 {
+                font-size: clamp(2.55rem, 11vw, 3.25rem) !important;
+                line-height: 0.95;
+            }
+
+            #servicii .mb-20,
+            #portofoliu .mb-20,
+            #preturi .mb-20 {
+                margin-bottom: 2.75rem !important;
+            }
+
+            .bento-card {
+                min-height: 240px;
+                padding: 1.5rem !important;
+                border-radius: 1.5rem !important;
+            }
+
+            .bento-card h3 {
+                font-size: clamp(1.55rem, 7vw, 2rem) !important;
+                line-height: 1.05;
+            }
+
+            .portfolio-card {
+                gap: 1.75rem !important;
+            }
+
+            .portfolio-img-wrapper {
+                border-radius: 1.5rem !important;
+            }
+
+            .portfolio-card h3 {
+                font-size: clamp(2.1rem, 10vw, 2.75rem) !important;
+                line-height: 1;
+            }
+
+            #despre > div {
+                gap: 3rem !important;
+            }
+
+            #despre h2 {
+                font-size: clamp(2.15rem, 10vw, 3rem) !important;
+                line-height: 1.05;
+            }
+
+            #despre .grid.grid-cols-2 {
+                gap: 0.8rem !important;
+            }
+
+            #despre .grid.grid-cols-2 > div {
+                min-height: 8rem;
+                padding: 1.25rem !important;
+            }
+
+            #preturi .grid {
+                gap: 1.25rem !important;
+            }
+
+            #preturi .bento-card {
+                min-height: auto;
+            }
+
+            #contact h2 {
+                font-size: clamp(3rem, 15vw, 4.75rem) !important;
+                line-height: 0.88;
+                margin-bottom: 2.5rem;
+            }
+
+            #contact .mt-20 {
+                margin-top: 3rem !important;
+            }
+
+            #contact .flex.justify-center.gap-12 {
+                gap: 2rem !important;
+                flex-wrap: wrap;
+            }
+
+            #contact .flex.justify-center.gap-12 a {
+                font-size: 2.2rem !important;
+            }
+
+            footer p,
+            footer div:last-child {
+                text-align: center;
+                letter-spacing: 0.12em;
+                line-height: 1.7;
+            }
+
+            .fixed.bottom-6 {
+                bottom: 1rem;
+                width: calc(100% - 2rem);
+                display: flex;
+                justify-content: center;
+            }
+
+            .fixed.bottom-6 a {
+                width: 100%;
+                max-width: 19rem;
+                justify-content: center;
+            }
+
+            #terms-modal > div {
+                max-height: 82svh;
+                padding: 1.5rem !important;
+                border-radius: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 374px) {
+            main > section:first-child h1 {
+                font-size: clamp(2.35rem, 12.5vw, 2.8rem) !important;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(1.9rem, 9.5vw, 2.4rem) !important;
+            }
+
+            #servicii h2,
+            #portofoliu h2,
+            #preturi h2,
+            #contact h2 {
+                letter-spacing: -0.06em;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-yellow selection:text-black">
@@ -286,6 +504,7 @@
                 <a href="https://www.tiktok.com/@estellio808?_r=1&_t=ZN-96UUgfWHDXC" target="_blank" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fab fa-tiktok"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=61589942400308" target="_blank" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/cmn.webdesigner?igsh=ZzV5ZWFjdWQ5Ymh0&utm_source=qr" target="_blank" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cmn.webdesigner@gmail.com&su=Cerere%20oferta%20pentru%20site%20web&body=Bun%C4%83%20ziua%2C%0A%0AAm%20v%C4%83zut%20serviciile%20CMN%20WebDesigner%20%C8%99i%20a%C8%99%20dori%20s%C4%83%20discut%C4%83m%20despre%20realizarea%20unui%20site%20pentru%20afacerea%20mea.%0A%0ADetalii%20proiect%3A%0A-%20Tipul%20site-ului%20dorit%3A%0A-%20Domeniul%20de%20activitate%3A%0A-%20Num%C4%83r%20aproximativ%20de%20sec%C8%9Biuni%20/%20pagini%3A%0A-%20Con%C8%9Binut%20disponibil%20%28texte%2C%20poze%2C%20logo%29%3A%0A-%20Exemple%20de%20site-uri%20care%20%C3%AEmi%20plac%3A%0A-%20Termen%20dorit%20pentru%20finalizare%3A%0A-%20Buget%20aproximativ%3A%0A%0AM%C4%83%20pute%C8%9Bi%20ajuta%20cu%20o%20recomandare%20%C8%99i%20o%20ofert%C4%83%20estimativ%C4%83%20pentru%20proiect%3F%0A%0AMul%C8%9Bumesc%21" target="_blank" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </header>
@@ -591,6 +810,7 @@
                         <a href="https://www.tiktok.com/@estellio808?_r=1&_t=ZN-96UUgfWHDXC" target="_blank" class="text-white hover:text-yellow hover:-translate-y-2 transition-all text-4xl"><i class="fab fa-tiktok"></i></a>
                         <a href="https://www.facebook.com/profile.php?id=61589942400308" target="_blank" class="text-white hover:text-yellow hover:-translate-y-2 transition-all text-4xl"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/cmn.webdesigner?igsh=ZzV5ZWFjdWQ5Ymh0&utm_source=qr" target="_blank" class="text-white hover:text-yellow hover:-translate-y-2 transition-all text-4xl"><i class="fab fa-instagram"></i></a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=cmn.webdesigner@gmail.com&su=Cerere%20oferta%20pentru%20site%20web&body=Bun%C4%83%20ziua%2C%0A%0AAm%20v%C4%83zut%20serviciile%20CMN%20WebDesigner%20%C8%99i%20a%C8%99%20dori%20s%C4%83%20discut%C4%83m%20despre%20realizarea%20unui%20site%20pentru%20afacerea%20mea.%0A%0ADetalii%20proiect%3A%0A-%20Tipul%20site-ului%20dorit%3A%0A-%20Domeniul%20de%20activitate%3A%0A-%20Num%C4%83r%20aproximativ%20de%20sec%C8%9Biuni%20/%20pagini%3A%0A-%20Con%C8%9Binut%20disponibil%20%28texte%2C%20poze%2C%20logo%29%3A%0A-%20Exemple%20de%20site-uri%20care%20%C3%AEmi%20plac%3A%0A-%20Termen%20dorit%20pentru%20finalizare%3A%0A-%20Buget%20aproximativ%3A%0A%0AM%C4%83%20pute%C8%9Bi%20ajuta%20cu%20o%20recomandare%20%C8%99i%20o%20ofert%C4%83%20estimativ%C4%83%20pentru%20proiect%3F%0A%0AMul%C8%9Bumesc%21" target="_blank" class="text-white hover:text-yellow hover:-translate-y-2 transition-all text-4xl"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -634,7 +854,7 @@
                 <p class="text-yellow font-bold text-xs tracking-[0.1em] uppercase">Ultima actualizare: Mai 2026</p>
                 <p>
                     <strong>1. Prezentarea Serviciului</strong><br>
-                    CMN WebDesigner oferă servicii premium de design și dezvoltare web custom, adaptate pentru afaceri locale mici și mijlocii. Fiecare site este construit de la zero, focusându-ne pe performanță pe mobil și elemente vizuale deosebite.
+                    CMN WebDesigner oferă servicii premium de design și dezvoltare web custom, adaptate pentru afaceri locale mici și mijlocii. Fiecare site este construit de la zero, focusându-ne pe performanță pe mobil și elemente vizuale personalizate.
                 </p>
                 <p>
                     <strong>2. Domeniu & Găzduire Cloud</strong><br>
@@ -642,7 +862,7 @@
                 </p>
                 <p>
                     <strong>3. Drepturi de Proprietate</strong><br>
-                    Odată ce proiectul este finalizat și plata este efectuată integral, drepturile de utilizare a site-ului vă aparțin în totalitate. CMN WebDesigner își rezervă dreptul de a afișa imagini din proiect în portofoliul propriu de lucrări, dacă nu s-a agreat altfel.
+                    Odată ce proiectul este finalizat și plata este efectuată integral, drepturile de utilizare a site-ului vă aparțin în totalitate. CMN WebDesigner își rezervă dreptul de a afișa imagini din proiect în portofoliul propriu de lucrări, cu excepția cazului în care s-a stabilit altfel în prealabil.
                 </p>
                 <p>
                     <strong>4. Garanție & Suport</strong><br>
