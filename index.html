@@ -452,6 +452,424 @@
             }
         }
 
+
+        /* --- FIX REAL pentru meniul mobil: nu mai intra peste text/logo pe telefon --- */
+        @media (max-width: 767px) {
+            #mobile-btn {
+                z-index: 80 !important;
+            }
+
+            #navbar > div > div:first-child {
+                max-width: calc(100% - 4.75rem);
+                overflow: hidden;
+            }
+
+            #navbar > div > div:first-child a span {
+                font-size: clamp(0.92rem, 4.4vw, 1.12rem) !important;
+                letter-spacing: -0.05em !important;
+            }
+
+            #mobile-menu {
+                z-index: 65 !important;
+                height: 100dvh !important;
+                min-height: 100dvh !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: flex-start !important;
+                padding: calc(env(safe-area-inset-top) + 5.2rem) 1.25rem calc(env(safe-area-inset-bottom) + 1.4rem) !important;
+                overflow: hidden !important;
+            }
+
+            #mobile-menu nav {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                margin: 0 !important;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(1.75rem, 7.7vw, 2.25rem) !important;
+                line-height: 1 !important;
+                letter-spacing: -0.04em !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 {
+                position: static !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                width: 100% !important;
+                margin-top: auto !important;
+                padding-top: 2rem !important;
+                display: flex !important;
+                justify-content: flex-start !important;
+                align-items: center !important;
+                gap: 1.25rem !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 a {
+                font-size: 1.35rem !important;
+                width: 2.75rem;
+                height: 2.75rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 999px;
+                background: rgba(255,255,255,0.03);
+            }
+
+            #despre h2 {
+                font-size: clamp(2rem, 9vw, 2.65rem) !important;
+                line-height: 1.02 !important;
+                letter-spacing: -0.055em !important;
+            }
+
+            #despre p {
+                font-size: 0.98rem !important;
+                line-height: 1.75 !important;
+            }
+
+            .fixed.bottom-6 {
+                bottom: calc(env(safe-area-inset-bottom) + 0.85rem) !important;
+            }
+        }
+
+        @media (max-width: 374px) {
+            #mobile-menu {
+                padding-top: calc(env(safe-area-inset-top) + 4.8rem) !important;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(1.55rem, 7.2vw, 1.95rem) !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 a {
+                width: 2.45rem;
+                height: 2.45rem;
+                font-size: 1.15rem !important;
+            }
+        }
+
+
+
+        /* =========================================================
+           FIX FINAL MOBIL - doar telefon/tabletă mică.
+           Desktop/laptop rămâne neschimbat.
+           ========================================================= */
+        @media (max-width: 767px) {
+            html,
+            body {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+            }
+
+            body.menu-open {
+                overflow: hidden !important;
+                height: 100dvh !important;
+            }
+
+            #navbar {
+                padding: 0.85rem 1rem !important;
+                z-index: 1000 !important;
+            }
+
+            #navbar > div {
+                width: 100% !important;
+                gap: 0.75rem !important;
+            }
+
+            #navbar > div > div:first-child {
+                max-width: calc(100% - 4.2rem) !important;
+                min-width: 0 !important;
+                overflow: hidden !important;
+            }
+
+            #navbar > div > div:first-child a {
+                min-width: 0 !important;
+                gap: 0.55rem !important;
+            }
+
+            #navbar > div > div:first-child a span {
+                display: block !important;
+                max-width: 100% !important;
+                font-size: clamp(0.92rem, 4.1vw, 1.08rem) !important;
+                line-height: 1 !important;
+                letter-spacing: -0.055em !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+            }
+
+            #mobile-btn {
+                width: 2.8rem !important;
+                height: 2.8rem !important;
+                min-width: 2.8rem !important;
+                z-index: 1200 !important;
+            }
+
+            #mobile-btn span:first-child {
+                width: 1.8rem !important;
+            }
+
+            #mobile-btn span:last-child {
+                width: 1.25rem !important;
+            }
+
+            #mobile-menu {
+                position: fixed !important;
+                inset: 0 !important;
+                width: 100vw !important;
+                height: 100dvh !important;
+                min-height: 100dvh !important;
+                z-index: 1050 !important;
+                background: rgba(0, 0, 0, 0.98) !important;
+                backdrop-filter: blur(14px) !important;
+                -webkit-backdrop-filter: blur(14px) !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: stretch !important;
+                padding: calc(env(safe-area-inset-top) + 5.5rem) 1.2rem calc(env(safe-area-inset-bottom) + 1.25rem) !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                opacity: 0 !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+                transform: translateY(-10px) !important;
+                transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
+            }
+
+            #mobile-menu.opacity-100 {
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+                transform: translateY(0) !important;
+            }
+
+            #mobile-menu .bg-grid-pattern {
+                opacity: 0.12 !important;
+            }
+
+            #mobile-menu nav {
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0.85rem !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                position: relative !important;
+                z-index: 2 !important;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(1.75rem, 7.6vw, 2.35rem) !important;
+                line-height: 1.02 !important;
+                letter-spacing: -0.055em !important;
+                padding: 0.15rem 0 !important;
+                white-space: normal !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                margin-top: 2rem !important;
+                padding-top: 1.4rem !important;
+                width: 100% !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 0.8rem !important;
+                z-index: 2 !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 a {
+                width: 2.65rem !important;
+                height: 2.65rem !important;
+                min-width: 2.65rem !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-size: 1.15rem !important;
+                border-radius: 999px !important;
+                border: 1px solid rgba(255,255,255,0.14) !important;
+                background: rgba(255,255,255,0.04) !important;
+            }
+
+            main > section:first-child {
+                min-height: auto !important;
+                padding-top: 7.2rem !important;
+                padding-bottom: 4rem !important;
+            }
+
+            main > section:first-child h1 {
+                font-size: clamp(2.65rem, 12.6vw, 4.35rem) !important;
+                line-height: 0.92 !important;
+                letter-spacing: -0.06em !important;
+                margin-top: 1rem !important;
+                margin-bottom: 1.35rem !important;
+            }
+
+            main > section:first-child p {
+                font-size: 0.98rem !important;
+                line-height: 1.62 !important;
+                max-width: 21.5rem !important;
+                margin-bottom: 2rem !important;
+            }
+
+            main > section:first-child a {
+                width: 100% !important;
+                max-width: 19.5rem !important;
+                text-align: center !important;
+                padding: 0.9rem 1.2rem !important;
+            }
+
+            .marquee-container {
+                margin-top: 1rem !important;
+                margin-bottom: 1rem !important;
+                padding-top: 0.85rem !important;
+                padding-bottom: 0.85rem !important;
+            }
+
+            #servicii,
+            #portofoliu,
+            #despre,
+            #preturi,
+            #contact {
+                padding-left: 1.2rem !important;
+                padding-right: 1.2rem !important;
+                padding-top: 4.5rem !important;
+                padding-bottom: 4.5rem !important;
+            }
+
+            #servicii h2,
+            #portofoliu h2,
+            #preturi h2,
+            #contact h2,
+            #despre h2 {
+                font-size: clamp(2.15rem, 9.4vw, 3.15rem) !important;
+                line-height: 1.03 !important;
+                letter-spacing: -0.055em !important;
+            }
+
+            #contact h2 {
+                font-size: clamp(2.55rem, 12vw, 4rem) !important;
+                line-height: 0.95 !important;
+            }
+
+            #servicii .mb-20,
+            #portofoliu .mb-20,
+            #preturi .mb-20 {
+                margin-bottom: 2.4rem !important;
+            }
+
+            #despre > div {
+                gap: 2.5rem !important;
+            }
+
+            #despre p {
+                font-size: 0.98rem !important;
+                line-height: 1.7 !important;
+            }
+
+            .bento-card {
+                min-height: 230px !important;
+                padding: 1.35rem !important;
+                border-radius: 1.35rem !important;
+            }
+
+            .bento-card h3 {
+                font-size: clamp(1.45rem, 6.5vw, 1.95rem) !important;
+                line-height: 1.05 !important;
+            }
+
+            .portfolio-card {
+                gap: 1.6rem !important;
+            }
+
+            .portfolio-img-wrapper {
+                border-radius: 1.35rem !important;
+            }
+
+            .portfolio-card h3 {
+                font-size: clamp(2rem, 8.8vw, 2.65rem) !important;
+                line-height: 1.02 !important;
+            }
+
+            #contact .flex.justify-center.gap-12 {
+                gap: 1rem !important;
+                flex-wrap: wrap !important;
+            }
+
+            #contact .flex.justify-center.gap-12 a {
+                width: 3rem !important;
+                height: 3rem !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-size: 1.6rem !important;
+            }
+
+            .fixed.bottom-6 {
+                left: 1rem !important;
+                right: 1rem !important;
+                bottom: calc(env(safe-area-inset-bottom) + 0.8rem) !important;
+                width: auto !important;
+                display: flex !important;
+                justify-content: center !important;
+                z-index: 900 !important;
+            }
+
+            .fixed.bottom-6 a {
+                width: 100% !important;
+                max-width: 19rem !important;
+                justify-content: center !important;
+                padding-top: 0.95rem !important;
+                padding-bottom: 0.95rem !important;
+                font-size: 0.78rem !important;
+            }
+
+            footer p,
+            footer div:last-child {
+                text-align: center !important;
+                line-height: 1.7 !important;
+                letter-spacing: 0.12em !important;
+            }
+        }
+
+        @media (max-width: 380px) {
+            #navbar > div > div:first-child a span {
+                font-size: 0.88rem !important;
+            }
+
+            #mobile-menu {
+                padding-top: calc(env(safe-area-inset-top) + 4.9rem) !important;
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(1.55rem, 7.1vw, 1.95rem) !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 a {
+                width: 2.35rem !important;
+                height: 2.35rem !important;
+                min-width: 2.35rem !important;
+                font-size: 1rem !important;
+            }
+
+            main > section:first-child h1 {
+                font-size: clamp(2.35rem, 11.8vw, 3.25rem) !important;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-yellow selection:text-black">
@@ -483,7 +901,7 @@
             </nav>
 
             <!-- Mobile Menu Btn -->
-            <button id="mobile-btn" class="md:hidden w-12 h-12 flex flex-col items-end justify-center gap-[6px] z-[60] relative group hover-trigger">
+            <button id="mobile-btn" aria-label="Deschide meniul" aria-expanded="false" class="md:hidden w-12 h-12 flex flex-col items-end justify-center gap-[6px] z-[60] relative group hover-trigger">
                 <span class="block w-8 h-[2px] bg-white transition-transform duration-300"></span>
                 <span class="block w-5 h-[2px] bg-yellow group-hover:w-8 transition-all duration-300"></span>
             </button>
@@ -854,7 +1272,7 @@
                 <p class="text-yellow font-bold text-xs tracking-[0.1em] uppercase">Ultima actualizare: Mai 2026</p>
                 <p>
                     <strong>1. Prezentarea Serviciului</strong><br>
-                    CMN WebDesigner oferă servicii premium de design și dezvoltare web custom, adaptate pentru afaceri locale mici și mijlocii. Fiecare site este construit de la zero, focusându-ne pe performanță pe mobil și elemente vizuale personalizate.
+                    CMN WebDesigner oferă servicii premium de design și dezvoltare web custom, adaptate pentru afaceri locale mici și mijlocii. Fiecare site este construit de la zero, focusându-ne pe performanță pe mobil și elemente vizuale deosebite.
                 </p>
                 <p>
                     <strong>2. Domeniu & Găzduire Cloud</strong><br>
@@ -862,7 +1280,7 @@
                 </p>
                 <p>
                     <strong>3. Drepturi de Proprietate</strong><br>
-                    Odată ce proiectul este finalizat și plata este efectuată integral, drepturile de utilizare a site-ului vă aparțin în totalitate. CMN WebDesigner își rezervă dreptul de a afișa imagini din proiect în portofoliul propriu de lucrări, cu excepția cazului în care s-a stabilit altfel în prealabil.
+                    Odată ce proiectul este finalizat și plata este efectuată integral, drepturile de utilizare a site-ului vă aparțin în totalitate. CMN WebDesigner își rezervă dreptul de a afișa imagini din proiect în portofoliul propriu de lucrări, dacă nu s-a agreat altfel.
                 </p>
                 <p>
                     <strong>4. Garanție & Suport</strong><br>
@@ -894,13 +1312,17 @@
                     e.preventDefault();
                     termsModal.classList.remove('opacity-0', 'pointer-events-none');
                     termsModal.classList.add('opacity-100', 'pointer-events-auto');
-                    document.body.style.overflow = 'hidden'; // Blochează scroll-ul în fundal
+                    document.body.style.overflow = 'hidden';
+                    document.body.classList.add('menu-open');
+                    mobileBtn.setAttribute('aria-expanded', 'true'); // Blochează scroll-ul în fundal
                 });
 
                 const closeModal = () => {
                     termsModal.classList.remove('opacity-100', 'pointer-events-auto');
                     termsModal.classList.add('opacity-0', 'pointer-events-none');
-                    document.body.style.overflow = 'auto'; // Reactivează scroll-ul
+                    document.body.style.overflow = '';
+                    document.body.classList.remove('menu-open');
+                    mobileBtn.setAttribute('aria-expanded', 'false'); // Reactivează scroll-ul
                 };
 
                 closeTerms.addEventListener('click', closeModal);
@@ -983,6 +1405,8 @@
                     lines[1].style.transform = 'translateY(-4px) rotate(-45deg)';
                     
                     document.body.style.overflow = 'hidden';
+                    document.body.classList.add('menu-open');
+                    mobileBtn.setAttribute('aria-expanded', 'true');
                 } else {
                     mobileMenu.classList.add('opacity-0', 'pointer-events-none');
                     mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
@@ -991,7 +1415,9 @@
                     lines[1].style.width = '20px';
                     lines[1].style.transform = 'none';
                     
-                    document.body.style.overflow = 'auto';
+                    document.body.style.overflow = '';
+                    document.body.classList.remove('menu-open');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
                 }
             }
 
