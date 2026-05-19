@@ -246,26 +246,23 @@
         <div class="max-w-[1600px] mx-auto flex justify-between items-center">
             
             <!-- Logo Top -->
-            <a href="#" class="relative z-50 flex items-center gap-3 group transition-transform hover:scale-105 hover-trigger">
-                <div class="w-2.5 h-2.5 bg-yellow rounded-full animate-pulse shadow-[0_0_10px_rgba(255,230,0,0.8)]"></div>
-                <span class="text-xl md:text-2xl font-display font-bold tracking-tight text-white leading-none uppercase">CMN <span class="font-light text-yellow">WebDesigner</span></span>
-            </a>
+            <div class="flex items-center gap-4 relative z-50">
+                <a href="#" class="flex items-center gap-3 group transition-transform hover:scale-105 hover-trigger">
+                    <div class="w-2.5 h-2.5 bg-yellow rounded-full animate-pulse shadow-[0_0_10px_rgba(255,230,0,0.8)]"></div>
+                    <span class="text-xl md:text-2xl font-display font-bold tracking-tight text-white leading-none uppercase">CMN <span class="font-light text-yellow">WebDesigner</span></span>
+                </a>
+                <span class="hidden md:block text-gray-700">|</span>
+                <a href="#" id="terms-btn" class="hidden md:inline-block text-[10px] font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Termenii și condițiile</a>
+            </div>
 
             <!-- Menu Desktop -->
             <nav class="hidden md:flex items-center space-x-10 bg-surface/80 backdrop-blur-md px-8 py-3.5 rounded-full border border-white/5 shadow-lg">
-                <a href="#servicii" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Servicii</a>
-                <a href="#portofoliu" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Portofoliu</a>
-                <a href="#despre" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Despre</a>
-                <a href="#preturi" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Prețuri</a>
-                <a href="#contact" class="text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Contact</a>
+                <a href="#servicii" class="nav-link text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Servicii</a>
+                <a href="#portofoliu" class="nav-link text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Portofoliu</a>
+                <a href="#despre" class="nav-link text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Despre</a>
+                <a href="#preturi" class="nav-link text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Prețuri</a>
+                <a href="#contact" class="nav-link text-xs font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Contact</a>
             </nav>
-
-            <!-- Buton Contact Desktop -->
-            <div class="hidden md:block relative z-50">
-                <a href="#contact" class="hover-trigger px-7 py-3.5 bg-white text-black font-sans text-xs font-bold uppercase tracking-[0.1em] rounded-full hover:bg-yellow hover:scale-105 hover:shadow-[0_0_20px_rgba(255,230,0,0.4)] transition-all duration-300 flex items-center gap-2">
-                    Start Proiect
-                </a>
-            </div>
 
             <!-- Mobile Menu Btn -->
             <button id="mobile-btn" class="md:hidden w-12 h-12 flex flex-col items-end justify-center gap-[6px] z-[60] relative group hover-trigger">
@@ -304,7 +301,7 @@
 
                 <!-- Text Masiv -->
                 <h1 class="text-5xl sm:text-7xl md:text-[6rem] lg:text-[8rem] font-display font-bold leading-[0.9] tracking-tight mb-8 mt-10">
-                    <span class="block reveal-up text-yellow">CREEZ SITE-URI</span>
+                    <span class="block reveal-up text-yellow">SITE-URI</span>
                     <span class="block reveal-up reveal-delay-1">MODERNE PENTRU</span>
                     <span class="block reveal-up reveal-delay-2 text-yellow">AFACERI MICI.</span>
                 </h1>
@@ -362,8 +359,8 @@
         <section id="servicii" class="py-24 md:py-32 px-6 md:px-12 relative">
             <div class="max-w-[1600px] mx-auto">
                 <div class="mb-20 reveal-up flex flex-col md:flex-row justify-between items-end gap-6">
-                    <h2 class="text-5xl md:text-7xl font-display font-bold leading-none">Ce putem <br><span class="text-yellow">construi.</span></h2>
-                    <p class="text-gray-400 font-sans max-w-sm text-sm leading-relaxed">Nu facem doar site-uri. Creăm experiențe digitale gândite să convertească vizitatorii în clienți reali pentru afacerea ta.</p>
+                    <h2 class="text-5xl md:text-7xl font-display font-bold leading-none">Idei simple, <br><span class="text-yellow">afaceri mari.</span></h2>
+                    <p class="text-gray-400 font-sans max-w-sm text-sm leading-relaxed">Nu facem doar site-uri. Creăm experiențe digitale gândite să transforme vizitatorii în clienți reali pentru afacerea ta.</p>
                 </div>
 
                 <!-- Bento Grid -->
@@ -389,7 +386,7 @@
                         </div>
                         <div>
                             <h3 class="text-2xl font-display font-bold mb-2">Mobile First</h3>
-                            <p class="text-gray-400 font-sans text-sm">Adaptare perfectă pe orice ecran. Peste 80% din vizitatori sunt pe telefon.</p>
+                            <p class="text-gray-400 font-sans text-sm">Adaptare perfectă pe orice ecran. Peste 85% din vizitatori sunt pe telefon.</p>
                         </div>
                     </div>
 
@@ -401,7 +398,7 @@
                         </div>
                         <div>
                             <h3 class="text-2xl font-display font-bold mb-2">Portofoliu & Galerie</h3>
-                            <p class="text-gray-400 font-sans text-sm">Afișează-ți munca într-un mod spectaculos cu încărcare instantă.</p>
+                            <p class="text-gray-400 font-sans text-sm">Afișează-ți munca într-un mod remarcabil cu încărcare rapida.</p>
                         </div>
                     </div>
 
@@ -499,7 +496,7 @@
                             Sunt <strong>CMN WebDesigner</strong>, dedicat exclusiv afacerilor locale și micilor antreprenori care doresc o imagine digitală cu adevărat premium.
                         </p>
                         <p>
-                            Nu mă bazez pe template-uri plictisitoare. Fiecare site este desenat cu atenție la detalii, optimizat la perfecție pentru telefon și construit să funcționeze impecabil. Ofer calitatea agențiilor mari, adaptată nevoilor tale reale.
+                            Ne bazam pe template-uri dnamice. Fiecare site este realizat cu atentie la detaliu ,optimizat la perfectie pentru telefon si construit sa functioneze la capacitati optime. Oferim calitatea agentiilor mari, adaptata la nevoilor tale.
                         </p>
                     </div>
                 </div>
@@ -531,7 +528,6 @@
             <div class="max-w-[1600px] mx-auto">
                 <div class="mb-20 text-center reveal-up">
                     <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">Pachete & <span class="text-yellow">Prețuri</span></h2>
-                    <p class="text-gray-400 font-sans text-sm tracking-[0.2em] uppercase">Transparență Totală</p>
                 </div>
 
                 <!-- Pricing Cards -->
@@ -586,7 +582,7 @@
 
             <div class="max-w-4xl mx-auto reveal-up relative z-10">
                 <h2 class="text-5xl sm:text-6xl md:text-[6rem] lg:text-[7rem] font-display font-bold leading-none mb-12 tracking-tighter group hover:scale-105 transition-transform duration-700 cursor-default">
-                    <span class="text-outline">START</span> PROIECT.
+                    <span class="text-outline">START</span> PROJECT.
                 </h2>
 
                 <div class="mt-20">
@@ -615,6 +611,47 @@
         </div>
     </footer>
 
+    <!-- Floating Start Project Button -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] w-max">
+        <a href="#contact" class="hover-trigger px-5 py-3 md:px-7 md:py-3.5 bg-white text-black font-sans text-[10px] md:text-xs font-bold uppercase tracking-[0.1em] rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:bg-yellow hover:scale-105 hover:shadow-[0_0_20px_rgba(255,230,0,0.4)] transition-all duration-300 flex items-center gap-2 border border-transparent hover:border-yellow group">
+            <span class="relative flex h-2 w-2 md:h-2.5 md:w-2.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75 group-hover:bg-black transition-colors"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 md:h-2.5 md:w-2.5 bg-black group-hover:bg-black transition-colors"></span>
+            </span>
+            Start Project
+        </a>
+    </div>
+
+    <!-- Modal Termeni și Condiții -->
+    <div id="terms-modal" class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-surface border border-white/10 rounded-[2rem] max-w-2xl w-full p-8 md:p-10 relative max-h-[80vh] overflow-y-auto shadow-2xl shadow-yellow/5">
+            <!-- Close Button -->
+            <button id="close-terms" class="absolute top-6 right-6 text-gray-400 hover:text-yellow transition-colors text-2xl hover-trigger">
+                <i class="fas fa-times"></i>
+            </button>
+            <h3 class="text-2xl md:text-3xl font-display font-bold text-white mb-6 uppercase">Termeni și Condiții <span class="text-yellow">.</span></h3>
+            <div class="space-y-6 font-sans text-sm text-gray-400 leading-relaxed max-h-[50vh] overflow-y-auto pr-2">
+                <p class="text-yellow font-bold text-xs tracking-[0.1em] uppercase">Ultima actualizare: Mai 2026</p>
+                <p>
+                    <strong>1. Prezentarea Serviciului</strong><br>
+                    CMN WebDesigner oferă servicii premium de design și dezvoltare web custom, adaptate pentru afaceri locale mici și mijlocii. Fiecare site este construit de la zero, focusându-ne pe performanță pe mobil și elemente vizuale deosebite.
+                </p>
+                <p>
+                    <strong>2. Domeniu & Găzduire Cloud</strong><br>
+                    Pentru a oferi tarife finale extrem de avantajoase și accesibile, site-ul tău va rula în mod implicit și gratuit pe servere profesionale cloud moderne. Serviciul standard nu include asistență pentru achiziția sau configurarea domeniilor plătite (cum ar fi cele de tip .ro, .com), excepție făcând doar ofertele agreate separat.
+                </p>
+                <p>
+                    <strong>3. Drepturi de Proprietate</strong><br>
+                    Odată ce proiectul este finalizat și plata este efectuată integral, drepturile de utilizare a site-ului vă aparțin în totalitate. CMN WebDesigner își rezervă dreptul de a afișa imagini din proiect în portofoliul propriu de lucrări, dacă nu s-a agreat altfel.
+                </p>
+                <p>
+                    <strong>4. Garanție & Suport</strong><br>
+                    Toate site-urile noastre sunt construite fără erori logice sau defecte de design (fără bug-uri). Oferim suport gratuit de mentenanță de bază timp de 30 de zile de la lansarea site-ului online, pentru remedierea eventualelor disfuncționalități neprevăzute.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Previne scroll-ul automat la o secțiune anterioară la refresh/load
         if ('scrollRestoration' in history) {
@@ -626,6 +663,35 @@
             
             // Setare an
             document.getElementById('year').textContent = new Date().getFullYear();
+
+            // --- Logica Modal Termeni și Condiții ---
+            const termsBtn = document.getElementById('terms-btn');
+            const termsModal = document.getElementById('terms-modal');
+            const closeTerms = document.getElementById('close-terms');
+
+            if (termsBtn && termsModal && closeTerms) {
+                termsBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    termsModal.classList.remove('opacity-0', 'pointer-events-none');
+                    termsModal.classList.add('opacity-100', 'pointer-events-auto');
+                    document.body.style.overflow = 'hidden'; // Blochează scroll-ul în fundal
+                });
+
+                const closeModal = () => {
+                    termsModal.classList.remove('opacity-100', 'pointer-events-auto');
+                    termsModal.classList.add('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'auto'; // Reactivează scroll-ul
+                };
+
+                closeTerms.addEventListener('click', closeModal);
+                
+                // Închidere modal la click în afara ferestrei de text
+                termsModal.addEventListener('click', (e) => {
+                    if (e.target === termsModal) {
+                        closeModal();
+                    }
+                });
+            }
 
             // --- Custom Smooth Follower Cursor ---
             const cursorOuter = document.getElementById('cursor-outer');
@@ -734,6 +800,30 @@
             }, observerOptions);
 
             revealElements.forEach(el => observer.observe(el));
+
+            // --- ScrollSpy pentru Navigare ---
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".nav-link");
+
+            window.addEventListener("scroll", () => {
+                let current = "";
+                sections.forEach((section) => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.scrollY >= sectionTop - 250) {
+                        current = section.getAttribute("id");
+                    }
+                });
+
+                navLinks.forEach((link) => {
+                    link.classList.remove("text-white");
+                    link.classList.add("text-gray-400");
+                    if (link.getAttribute("href").includes(current) && current !== "") {
+                        link.classList.add("text-white");
+                        link.classList.remove("text-gray-400");
+                    }
+                });
+            });
 
             // Declanșează animațiile din prima secțiune la încărcare
             setTimeout(() => {
