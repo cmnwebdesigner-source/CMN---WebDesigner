@@ -1746,6 +1746,144 @@
             }
         }
 
+
+        /* =========================================================
+           FINAL FIX: servicii uniforme + TikTok unic portofoliu
+           ========================================================= */
+        #servicii .grid {
+            grid-auto-rows: minmax(220px, auto) !important;
+        }
+
+        #servicii .bento-card {
+            justify-content: flex-start !important;
+            gap: 2rem !important;
+        }
+
+        #servicii .bento-card > div:first-child {
+            margin-bottom: 0 !important;
+        }
+
+        #servicii .bento-card > div:last-child {
+            margin-top: 0 !important;
+        }
+
+        #servicii .bento-card .flex.flex-col.md\:flex-row {
+            align-items: flex-start !important;
+        }
+
+        .portfolio-tiktok-btn {
+            width: fit-content;
+        }
+
+        @media (min-width: 768px) {
+            #servicii .bento-card {
+                min-height: 220px !important;
+                gap: 2.4rem !important;
+            }
+
+            #servicii .bento-card.md\:col-span-2 {
+                min-height: 220px !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #servicii .grid {
+                grid-auto-rows: auto !important;
+                gap: 0.75rem !important;
+            }
+
+            #servicii .bento-card {
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                align-items: stretch !important;
+                gap: 0.8rem !important;
+                min-height: 0 !important;
+                height: auto !important;
+                padding: 1rem !important;
+            }
+
+            #servicii .bento-card > div:first-child {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                margin: 0 !important;
+            }
+
+            #servicii .bento-card > div:last-child {
+                margin: 0 !important;
+            }
+
+            #servicii .bento-card h3 {
+                margin-top: 0 !important;
+                margin-bottom: 0.35rem !important;
+            }
+
+            #servicii .bento-card p {
+                margin: 0 !important;
+            }
+
+            #servicii .bento-card .flex.flex-col.md\:flex-row {
+                display: block !important;
+            }
+
+            #servicii .bento-card .flex.flex-col.md\:flex-row > div:first-child {
+                margin-bottom: 0 !important;
+            }
+
+            #servicii .bento-card .w-16.h-16 {
+                display: none !important;
+            }
+
+            #portofoliu .mb-20 {
+                text-align: left !important;
+                margin-bottom: 1.7rem !important;
+            }
+
+            #portofoliu .mb-20 h2,
+            #portofoliu .mb-20 p {
+                text-align: left !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            .portfolio-tiktok-btn {
+                margin-top: 0.9rem !important;
+                padding: 0.62rem 0.9rem !important;
+                font-size: 0.62rem !important;
+                letter-spacing: 0.09em !important;
+            }
+
+            .portfolio-card a:not(.portfolio-tiktok-btn) {
+                display: none !important;
+            }
+        }
+
+
+        /* --- Termeni si conditii vizibili pe mobil, fara sa incarce headerul --- */
+        @media (max-width: 767px) {
+            .terms-open-mobile {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                margin-top: 0.45rem !important;
+                font-size: 0.55rem !important;
+                line-height: 1 !important;
+                letter-spacing: 0.14em !important;
+                padding: 0.55rem 0.75rem !important;
+                border-radius: 999px !important;
+                background: rgba(255, 255, 255, 0.03) !important;
+                border: 1px solid rgba(255, 255, 255, 0.12) !important;
+                color: rgba(255, 255, 255, 0.62) !important;
+            }
+            .terms-open-mobile:hover,
+            .terms-open-mobile:active {
+                color: #FFE600 !important;
+                border-color: rgba(255, 230, 0, 0.35) !important;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-yellow selection:text-black">
@@ -1764,7 +1902,7 @@
                     <span class="brand-wordmark">WebDesigner</span>
                 </a>
                 <span class="hidden md:block text-gray-700">|</span>
-                <a href="#" id="terms-btn" class="hidden md:inline-block text-[10px] font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Termenii și condițiile</a>
+                <a href="#" id="terms-btn" class="terms-open hidden md:inline-block text-[10px] font-sans tracking-[0.1em] text-gray-400 hover:text-white uppercase transition-colors hover-trigger">Termenii și condițiile</a>
             </div>
 
             <!-- Menu Desktop -->
@@ -1793,6 +1931,9 @@
                 <a href="#despre" class="mobile-link text-5xl font-display font-bold text-white hover:text-yellow transition-colors">Despre<span class="text-yellow">.</span></a>
                 <a href="#preturi" class="mobile-link text-5xl font-display font-bold text-white hover:text-yellow transition-colors">Prețuri<span class="text-yellow">.</span></a>
                 <a href="#contact" class="mobile-link text-5xl font-display font-bold text-white hover:text-yellow transition-colors">Contact<span class="text-yellow">.</span></a>
+                <button type="button" id="terms-btn-mobile" class="terms-open-mobile mt-3 w-fit text-left text-[0.62rem] font-sans tracking-[0.16em] uppercase text-gray-400 hover:text-yellow transition-colors border border-white/10 rounded-full px-3 py-2">
+                    Termenii și condițiile
+                </button>
             </nav>
             <div class="absolute bottom-12 left-8 flex gap-6 z-10">
                 <a href="https://www.tiktok.com/@estellio808?_r=1&_t=ZN-96UUgfWHDXC" target="_blank" class="text-white text-3xl hover:text-yellow transition-colors"><i class="fab fa-tiktok"></i></a>
@@ -1942,6 +2083,9 @@
                 <div class="mb-20 text-center reveal-up">
                     <h2 class="text-5xl md:text-7xl font-display font-bold mb-6">Lucrări <span class="text-outline">Recente</span></h2>
                     <p class="text-gray-400 font-sans text-sm tracking-[0.2em] uppercase">Studii de caz & Exemple</p>
+                    <a href="https://www.tiktok.com/@estellio808?_r=1&_t=ZN-96UUgfWHDXC" target="_blank" class="portfolio-tiktok-btn hover-trigger inline-flex items-center justify-center gap-2 mt-6 px-5 py-2.5 rounded-full border border-white/15 bg-white/5 text-white text-xs font-sans font-bold uppercase tracking-[0.12em] hover:border-yellow hover:text-yellow hover:bg-yellow/10 transition-all">
+                        Vezi pe TikTok <i class="fab fa-tiktok text-[0.8rem]"></i>
+                    </a>
                 </div>
 
                 <!-- Vertical Cinematic List -->
@@ -1957,7 +2101,6 @@
                             <span class="text-yellow text-xs font-sans tracking-[0.2em] uppercase mb-4">Design / Dezvoltare</span>
                             <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 group-hover:text-yellow transition-colors">Salon Frizerie</h3>
                             <p class="text-gray-400 font-sans text-sm leading-relaxed mb-8">Un website modern axat pe prezentarea serviciilor de frizerie și atragerea programărilor, cu un design dark-mode elegant.</p>
-                            <a href="https://www.tiktok.com/@estellio808?_r=1&_t=ZN-96UUgfWHDXC" target="_blank" class="text-white text-sm font-sans border-b border-white/30 w-fit pb-1 hover:border-yellow hover:text-yellow transition-all relative z-20">Vezi pe TikTok <i class="fab fa-tiktok ml-2 text-xs"></i></a>
                         </div>
                     </div>
 
@@ -1965,13 +2108,12 @@
                     <div class="portfolio-card group flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16 hover-trigger reveal-up">
                         <div class="w-full md:w-3/5 portfolio-img-wrapper rounded-[2rem] aspect-[4/3] md:aspect-[16/9] relative shadow-2xl shadow-black/80">
                             <div class="absolute inset-0 bg-black/30 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
-                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=1200" alt="Elena MakeUp Studio" class="w-full h-full object-cover">
+                            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=1200" alt="MakeUp Studio" class="w-full h-full object-cover">
                         </div>
                         <div class="w-full md:w-2/5 flex flex-col items-start md:items-end md:text-right">
                             <span class="text-yellow text-xs font-sans tracking-[0.2em] uppercase mb-4">Design / Portofoliu</span>
-                            <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 group-hover:text-yellow transition-colors">Elena MakeUp Studio</h3>
+                            <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 group-hover:text-yellow transition-colors">MakeUp Studio</h3>
                             <p class="text-gray-400 font-sans text-sm leading-relaxed mb-8">Un site de prezentare premium (One-Page) realizat pentru un artist de makeup. Design dark-theme cu accente premium, focusat pe vizual și eleganță.</p>
-                            <a href="https://www.tiktok.com/@estellio808?_r=1&_t=ZN-96UUgfWHDXC" target="_blank" class="text-white text-sm font-sans border-b border-white/30 w-fit pb-1 hover:border-yellow hover:text-yellow transition-all relative z-20 cursor-pointer">Vezi pe TikTok <i class="fab fa-tiktok ml-2 text-xs"></i></a>
                         </div>
                     </div>
 
@@ -1985,7 +2127,6 @@
                             <span class="text-yellow text-xs font-sans tracking-[0.2em] uppercase mb-4">Portofoliu / Booking</span>
                             <h3 class="text-4xl md:text-5xl font-display font-bold mb-4 group-hover:text-yellow transition-colors">Tattoo Artist</h3>
                             <p class="text-gray-400 font-sans text-sm leading-relaxed mb-8">Design îndrăzneț și asimetric pentru un studio de tatuaje, cu integrare directă către conturile de social media.</p>
-                            <a href="https://www.tiktok.com/@estellio808?_r=1&_t=ZN-96UUgfWHDXC" target="_blank" class="text-white text-sm font-sans border-b border-white/30 w-fit pb-1 hover:border-yellow hover:text-yellow transition-all relative z-20 cursor-pointer">Vezi pe TikTok <i class="fab fa-tiktok ml-2 text-xs"></i></a>
                         </div>
                     </div>
 
@@ -2179,18 +2320,21 @@
             document.getElementById('year').textContent = new Date().getFullYear();
 
             // --- Logica Modal Termeni și Condiții ---
-            const termsBtn = document.getElementById('terms-btn');
+            const termsBtns = document.querySelectorAll('#terms-btn, #terms-btn-mobile');
             const termsModal = document.getElementById('terms-modal');
             const closeTerms = document.getElementById('close-terms');
 
-            if (termsBtn && termsModal && closeTerms) {
-                termsBtn.addEventListener('click', (e) => {
+            if (termsBtns.length && termsModal && closeTerms) {
+                const openTermsModal = (e) => {
                     e.preventDefault();
                     termsModal.classList.remove('opacity-0', 'pointer-events-none');
                     termsModal.classList.add('opacity-100', 'pointer-events-auto');
                     document.body.style.overflow = 'hidden';
                     document.body.classList.add('menu-open');
-                    mobileBtn.setAttribute('aria-expanded', 'true'); // Blochează scroll-ul în fundal
+                };
+
+                termsBtns.forEach((btn) => {
+                    btn.addEventListener('click', openTermsModal);
                 });
 
                 const closeModal = () => {
@@ -2198,7 +2342,6 @@
                     termsModal.classList.add('opacity-0', 'pointer-events-none');
                     document.body.style.overflow = '';
                     document.body.classList.remove('menu-open');
-                    mobileBtn.setAttribute('aria-expanded', 'false'); // Reactivează scroll-ul
                 };
 
                 closeTerms.addEventListener('click', closeModal);
@@ -2357,3 +2500,4 @@
     </script>
 </body>
 </html>
+
