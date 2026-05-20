@@ -918,6 +918,834 @@
             }
         }
 
+
+        /* =========================================================
+           EXTRA MOBILE COMPACT OPTIMIZATION
+           Doar pentru telefon. Desktop/laptop ramane neschimbat.
+           ========================================================= */
+        @media (max-width: 767px) {
+            body {
+                font-size: 14px !important;
+            }
+
+            #navbar {
+                padding: 0.7rem 0.9rem !important;
+            }
+
+            .brand-logo-link {
+                gap: 0.5rem !important;
+            }
+
+            .brand-logo-mark {
+                width: 32px !important;
+                height: 32px !important;
+                filter: drop-shadow(0 0 8px rgba(255, 230, 0, 0.12)) !important;
+            }
+
+            .brand-wordmark {
+                font-size: 0.98rem !important;
+                letter-spacing: -0.05em !important;
+            }
+
+            #navbar > div > div:first-child {
+                gap: 0.55rem !important;
+            }
+
+            #mobile-btn {
+                width: 2.55rem !important;
+                height: 2.55rem !important;
+                min-width: 2.55rem !important;
+            }
+
+            #mobile-btn span:first-child {
+                width: 1.55rem !important;
+            }
+
+            #mobile-btn span:last-child {
+                width: 1.05rem !important;
+            }
+
+            #mobile-menu {
+                padding: calc(env(safe-area-inset-top) + 5rem) 1rem calc(env(safe-area-inset-bottom) + 1rem) !important;
+            }
+
+            #mobile-menu nav {
+                gap: 0.6rem !important;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(1.45rem, 6.8vw, 1.95rem) !important;
+                line-height: 1 !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 {
+                margin-top: 1.35rem !important;
+                padding-top: 1rem !important;
+                gap: 0.65rem !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 a {
+                width: 2.3rem !important;
+                height: 2.3rem !important;
+                min-width: 2.3rem !important;
+                font-size: 0.96rem !important;
+            }
+
+            main > section:first-child {
+                padding-top: 6.25rem !important;
+                padding-bottom: 2.9rem !important;
+            }
+
+            main > section:first-child h1 {
+                font-size: clamp(2.15rem, 10.7vw, 3.25rem) !important;
+                line-height: 0.94 !important;
+                margin-top: 0.7rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            main > section:first-child p {
+                font-size: 0.92rem !important;
+                line-height: 1.58 !important;
+                max-width: 18.75rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+
+            main > section:first-child a {
+                max-width: 16.75rem !important;
+                padding: 0.78rem 1rem !important;
+                font-size: 0.72rem !important;
+            }
+
+            .marquee-container {
+                margin-top: 0.8rem !important;
+                margin-bottom: 0.8rem !important;
+                padding-top: 0.72rem !important;
+                padding-bottom: 0.72rem !important;
+            }
+
+            .marquee-content {
+                gap: 1.1rem !important;
+            }
+
+            .marquee-content span {
+                font-size: 0.64rem !important;
+                letter-spacing: 0.14em !important;
+            }
+
+            .marquee-content i {
+                font-size: 0.7rem !important;
+            }
+
+            #servicii,
+            #portofoliu,
+            #despre,
+            #preturi,
+            #contact {
+                padding-left: 0.95rem !important;
+                padding-right: 0.95rem !important;
+                padding-top: 3.6rem !important;
+                padding-bottom: 3.6rem !important;
+            }
+
+            #servicii h2,
+            #portofoliu h2,
+            #preturi h2,
+            #despre h2 {
+                font-size: clamp(1.9rem, 8.2vw, 2.55rem) !important;
+                line-height: 1.02 !important;
+            }
+
+            #contact h2 {
+                font-size: clamp(2.25rem, 10.8vw, 3.35rem) !important;
+                line-height: 0.96 !important;
+                margin-bottom: 1.7rem !important;
+            }
+
+            #servicii .mb-20,
+            #portofoliu .mb-20,
+            #preturi .mb-20 {
+                margin-bottom: 1.75rem !important;
+            }
+
+            #servicii .mb-20 p,
+            #portofoliu .mb-20 p,
+            #preturi .mb-20 p,
+            #contact .mt-20 span,
+            #despre p,
+            #preturi p,
+            #servicii p,
+            #portofoliu p,
+            footer p,
+            footer div {
+                font-size: 0.84rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .bento-card {
+                min-height: 0 !important;
+                padding: 1.05rem !important;
+                border-radius: 1.05rem !important;
+            }
+
+            .bento-card h3 {
+                font-size: clamp(1.2rem, 5.7vw, 1.55rem) !important;
+                line-height: 1.08 !important;
+                margin-bottom: 0.45rem !important;
+            }
+
+            .bento-card p {
+                font-size: 0.8rem !important;
+                line-height: 1.52 !important;
+            }
+
+            #servicii .grid {
+                gap: 0.8rem !important;
+                auto-rows: auto !important;
+            }
+
+            #servicii .grid > div > div:first-child span.text-4xl,
+            #servicii .grid > div > div:first-child span.text-3xl {
+                font-size: 1.55rem !important;
+            }
+
+            #servicii .grid span.text-xs {
+                font-size: 0.56rem !important;
+            }
+
+            #servicii .w-16.h-16 {
+                width: 2.9rem !important;
+                height: 2.9rem !important;
+                border-radius: 0.9rem !important;
+            }
+
+            #servicii .w-16.h-16 i {
+                font-size: 1.25rem !important;
+            }
+
+            .portfolio-card {
+                gap: 1rem !important;
+            }
+
+            .portfolio-img-wrapper {
+                border-radius: 1rem !important;
+            }
+
+            .portfolio-card h3 {
+                font-size: clamp(1.55rem, 7.3vw, 2.05rem) !important;
+                margin-bottom: 0.4rem !important;
+            }
+
+            .portfolio-card p,
+            .portfolio-card a,
+            .portfolio-card span.text-xs {
+                font-size: 0.78rem !important;
+                line-height: 1.55 !important;
+            }
+
+            #despre > div {
+                gap: 1.6rem !important;
+            }
+
+            #despre .space-y-6 {
+                gap: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            #despre .space-y-6 p {
+                font-size: 0.85rem !important;
+                line-height: 1.62 !important;
+            }
+
+            #despre .grid.grid-cols-2 {
+                gap: 0.65rem !important;
+            }
+
+            #despre .grid.grid-cols-2 > div {
+                padding: 1rem !important;
+                border-radius: 1rem !important;
+                min-height: 6.6rem !important;
+            }
+
+            #despre .grid.grid-cols-2 > div span:first-child {
+                font-size: 1.6rem !important;
+                margin-bottom: 0.25rem !important;
+            }
+
+            #despre .grid.grid-cols-2 > div span:last-child {
+                font-size: 0.55rem !important;
+                line-height: 1.4 !important;
+            }
+
+            #preturi .grid {
+                gap: 0.9rem !important;
+            }
+
+            #preturi .grid .bento-card {
+                padding: 1.15rem !important;
+            }
+
+            #preturi .grid .bento-card h3 {
+                font-size: 1.28rem !important;
+            }
+
+            #preturi .grid .bento-card .text-4xl,
+            #preturi .grid .bento-card .text-5xl {
+                font-size: 1.95rem !important;
+                line-height: 1 !important;
+            }
+
+            #preturi .grid .bento-card .text-lg,
+            #preturi .grid .bento-card .text-xl,
+            #preturi .grid .bento-card .text-2xl {
+                font-size: 0.88rem !important;
+            }
+
+            #preturi .inline-block {
+                font-size: 0.63rem !important;
+                padding: 0.55rem 0.8rem !important;
+            }
+
+            #preturi .rounded-2xl {
+                border-radius: 1rem !important;
+                padding: 1rem !important;
+            }
+
+            #preturi .rounded-2xl p {
+                font-size: 0.77rem !important;
+                line-height: 1.55 !important;
+            }
+
+            #contact .mt-20 {
+                margin-top: 1.7rem !important;
+            }
+
+            #contact .flex.justify-center.gap-12 {
+                gap: 0.75rem !important;
+            }
+
+            #contact .flex.justify-center.gap-12 a {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+                font-size: 1.2rem !important;
+            }
+
+            footer {
+                padding-top: 0.9rem !important;
+                padding-bottom: 5.1rem !important;
+            }
+
+            footer .max-w-\[1600px\] {
+                gap: 0.35rem !important;
+            }
+
+            footer span.text-lg {
+                font-size: 0.95rem !important;
+            }
+
+            footer p,
+            footer div:last-child {
+                font-size: 0.56rem !important;
+                letter-spacing: 0.12em !important;
+            }
+
+            .fixed.bottom-6 {
+                left: 0.85rem !important;
+                right: 0.85rem !important;
+                bottom: calc(env(safe-area-inset-bottom) + 0.65rem) !important;
+            }
+
+            .fixed.bottom-6 a {
+                max-width: 16.8rem !important;
+                padding-top: 0.78rem !important;
+                padding-bottom: 0.78rem !important;
+                font-size: 0.64rem !important;
+                gap: 0.45rem !important;
+                border-radius: 999px !important;
+            }
+
+            .fixed.bottom-6 a span.relative.flex {
+                width: 0.4rem !important;
+                height: 0.4rem !important;
+            }
+
+            #terms-modal > div {
+                padding: 1rem !important;
+                border-radius: 1rem !important;
+                max-height: 80svh !important;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .brand-logo-mark {
+                width: 29px !important;
+                height: 29px !important;
+            }
+
+            .brand-wordmark {
+                font-size: 0.9rem !important;
+            }
+
+            main > section:first-child h1 {
+                font-size: clamp(2rem, 10vw, 2.85rem) !important;
+            }
+
+            #servicii h2,
+            #portofoliu h2,
+            #preturi h2,
+            #despre h2 {
+                font-size: clamp(1.75rem, 7.9vw, 2.25rem) !important;
+            }
+
+            #contact h2 {
+                font-size: clamp(2rem, 10vw, 2.95rem) !important;
+            }
+
+            .portfolio-card h3 {
+                font-size: clamp(1.45rem, 6.9vw, 1.85rem) !important;
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE FIX TOTAL - totul mai mic pe telefon
+           Desktop ramane neschimbat
+           ========================================================= */
+        @media (max-width: 767px) {
+            html {
+                font-size: 13px !important;
+            }
+
+            body {
+                font-size: 13px !important;
+                overflow-x: hidden !important;
+            }
+
+            /* HIDE floating Start Project button completely on mobile */
+            .fixed.bottom-6 {
+                display: none !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                visibility: hidden !important;
+            }
+
+            #navbar {
+                padding: 0.6rem 0.8rem !important;
+            }
+
+            .brand-logo-link {
+                gap: 0.42rem !important;
+            }
+
+            .brand-logo-mark {
+                width: 27px !important;
+                height: 27px !important;
+            }
+
+            .brand-wordmark {
+                font-size: 0.84rem !important;
+                letter-spacing: -0.06em !important;
+            }
+
+            #mobile-btn {
+                width: 2.35rem !important;
+                height: 2.35rem !important;
+                min-width: 2.35rem !important;
+                gap: 4px !important;
+            }
+
+            #mobile-btn span:first-child {
+                width: 1.35rem !important;
+            }
+
+            #mobile-btn span:last-child {
+                width: 0.95rem !important;
+            }
+
+            #mobile-menu {
+                padding: calc(env(safe-area-inset-top) + 4.7rem) 0.9rem calc(env(safe-area-inset-bottom) + 0.9rem) !important;
+            }
+
+            #mobile-menu nav {
+                gap: 0.45rem !important;
+            }
+
+            #mobile-menu nav > a {
+                font-size: clamp(1.28rem, 6.1vw, 1.72rem) !important;
+                line-height: 1 !important;
+                padding: 0.08rem 0 !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 {
+                margin-top: 1rem !important;
+                padding-top: 0.85rem !important;
+                gap: 0.55rem !important;
+            }
+
+            #mobile-menu .absolute.bottom-12 a {
+                width: 2.05rem !important;
+                height: 2.05rem !important;
+                min-width: 2.05rem !important;
+                font-size: 0.85rem !important;
+            }
+
+            main > section:first-child {
+                padding-top: 5.8rem !important;
+                padding-bottom: 2.3rem !important;
+                min-height: auto !important;
+            }
+
+            main > section:first-child h1 {
+                font-size: clamp(1.9rem, 9.8vw, 2.65rem) !important;
+                line-height: 0.96 !important;
+                margin-top: 0.4rem !important;
+                margin-bottom: 0.8rem !important;
+                letter-spacing: -0.07em !important;
+            }
+
+            main > section:first-child p {
+                font-size: 0.84rem !important;
+                line-height: 1.5 !important;
+                max-width: 17rem !important;
+                margin-bottom: 1.2rem !important;
+            }
+
+            main > section:first-child a {
+                max-width: 15rem !important;
+                padding: 0.68rem 0.9rem !important;
+                font-size: 0.64rem !important;
+                letter-spacing: 0.08em !important;
+            }
+
+            .marquee-container {
+                margin-top: 0.65rem !important;
+                margin-bottom: 0.65rem !important;
+                padding-top: 0.58rem !important;
+                padding-bottom: 0.58rem !important;
+            }
+
+            .marquee-content {
+                gap: 0.85rem !important;
+            }
+
+            .marquee-content span {
+                font-size: 0.55rem !important;
+                letter-spacing: 0.12em !important;
+            }
+
+            .marquee-content i {
+                font-size: 0.6rem !important;
+            }
+
+            #servicii,
+            #portofoliu,
+            #despre,
+            #preturi,
+            #contact {
+                padding-left: 0.8rem !important;
+                padding-right: 0.8rem !important;
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            #servicii h2,
+            #portofoliu h2,
+            #preturi h2,
+            #despre h2 {
+                font-size: clamp(1.65rem, 7.5vw, 2.15rem) !important;
+                line-height: 1.03 !important;
+                letter-spacing: -0.06em !important;
+            }
+
+            #contact h2 {
+                font-size: clamp(1.95rem, 9vw, 2.7rem) !important;
+                line-height: 0.97 !important;
+                margin-bottom: 1.35rem !important;
+            }
+
+            #servicii .mb-20,
+            #portofoliu .mb-20,
+            #preturi .mb-20 {
+                margin-bottom: 1.25rem !important;
+            }
+
+            #servicii .mb-20 p,
+            #portofoliu .mb-20 p,
+            #preturi .mb-20 p,
+            #contact .mt-20 span,
+            #despre p,
+            #preturi p,
+            #servicii p,
+            #portofoliu p,
+            footer p,
+            footer div {
+                font-size: 0.75rem !important;
+                line-height: 1.5 !important;
+            }
+
+            .bento-card {
+                min-height: 0 !important;
+                padding: 0.92rem !important;
+                border-radius: 0.95rem !important;
+            }
+
+            .bento-card h3 {
+                font-size: clamp(1.08rem, 5.2vw, 1.35rem) !important;
+                line-height: 1.08 !important;
+                margin-bottom: 0.35rem !important;
+            }
+
+            .bento-card p {
+                font-size: 0.73rem !important;
+                line-height: 1.46 !important;
+            }
+
+            #servicii .grid {
+                gap: 0.65rem !important;
+                auto-rows: auto !important;
+            }
+
+            #servicii .grid > div > div:first-child span.text-4xl,
+            #servicii .grid > div > div:first-child span.text-3xl {
+                font-size: 1.35rem !important;
+            }
+
+            #servicii .grid span.text-xs {
+                font-size: 0.5rem !important;
+            }
+
+            #servicii .w-16.h-16 {
+                width: 2.55rem !important;
+                height: 2.55rem !important;
+                border-radius: 0.75rem !important;
+            }
+
+            #servicii .w-16.h-16 i {
+                font-size: 1.05rem !important;
+            }
+
+            .portfolio-card {
+                gap: 0.8rem !important;
+            }
+
+            .portfolio-img-wrapper {
+                border-radius: 0.9rem !important;
+            }
+
+            .portfolio-card h3 {
+                font-size: clamp(1.34rem, 6.5vw, 1.75rem) !important;
+                margin-bottom: 0.28rem !important;
+                line-height: 1.04 !important;
+            }
+
+            .portfolio-card p,
+            .portfolio-card a,
+            .portfolio-card span.text-xs {
+                font-size: 0.72rem !important;
+                line-height: 1.48 !important;
+            }
+
+            #despre > div {
+                gap: 1.25rem !important;
+            }
+
+            #despre .space-y-6 p {
+                font-size: 0.77rem !important;
+                line-height: 1.55 !important;
+            }
+
+            #despre .grid.grid-cols-2 {
+                gap: 0.55rem !important;
+            }
+
+            #despre .grid.grid-cols-2 > div {
+                padding: 0.85rem !important;
+                border-radius: 0.9rem !important;
+                min-height: 5.9rem !important;
+            }
+
+            #despre .grid.grid-cols-2 > div span:first-child {
+                font-size: 1.4rem !important;
+                margin-bottom: 0.18rem !important;
+            }
+
+            #despre .grid.grid-cols-2 > div span:last-child {
+                font-size: 0.5rem !important;
+                line-height: 1.3 !important;
+            }
+
+            #preturi .grid {
+                gap: 0.7rem !important;
+            }
+
+            #preturi .grid .bento-card {
+                padding: 0.95rem !important;
+            }
+
+            #preturi .grid .bento-card h3 {
+                font-size: 1.12rem !important;
+            }
+
+            #preturi .grid .bento-card .text-4xl,
+            #preturi .grid .bento-card .text-5xl {
+                font-size: 1.65rem !important;
+                line-height: 1 !important;
+            }
+
+            #preturi .grid .bento-card .text-lg,
+            #preturi .grid .bento-card .text-xl,
+            #preturi .grid .bento-card .text-2xl {
+                font-size: 0.8rem !important;
+            }
+
+            #preturi .inline-block {
+                font-size: 0.58rem !important;
+                padding: 0.48rem 0.7rem !important;
+            }
+
+            #preturi .rounded-2xl {
+                border-radius: 0.9rem !important;
+                padding: 0.85rem !important;
+            }
+
+            #preturi .rounded-2xl p {
+                font-size: 0.71rem !important;
+                line-height: 1.48 !important;
+            }
+
+            #contact .mt-20 {
+                margin-top: 1.2rem !important;
+            }
+
+            #contact .flex.justify-center.gap-12 {
+                gap: 0.6rem !important;
+            }
+
+            #contact .flex.justify-center.gap-12 a {
+                width: 2.15rem !important;
+                height: 2.15rem !important;
+                font-size: 1rem !important;
+            }
+
+            footer {
+                padding-top: 0.8rem !important;
+                padding-bottom: 1.2rem !important;
+            }
+
+            footer span.text-lg {
+                font-size: 0.86rem !important;
+            }
+
+            footer p,
+            footer div:last-child {
+                font-size: 0.5rem !important;
+                letter-spacing: 0.1em !important;
+            }
+
+            #terms-modal > div {
+                padding: 0.9rem !important;
+                border-radius: 0.9rem !important;
+                max-height: 78svh !important;
+            }
+        }
+
+        @media (max-width: 430px) {
+            .brand-logo-mark {
+                width: 25px !important;
+                height: 25px !important;
+            }
+
+            .brand-wordmark {
+                font-size: 0.79rem !important;
+            }
+
+            main > section:first-child h1 {
+                font-size: clamp(1.75rem, 9vw, 2.35rem) !important;
+            }
+
+            #servicii h2,
+            #portofoliu h2,
+            #preturi h2,
+            #despre h2 {
+                font-size: clamp(1.55rem, 7vw, 1.95rem) !important;
+            }
+
+            #contact h2 {
+                font-size: clamp(1.8rem, 8.5vw, 2.4rem) !important;
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE TEXT ALIGNMENT FIX - uniform pe telefon
+           Desktop/laptop ramane neschimbat
+           ========================================================= */
+        @media (max-width: 767px) {
+            /* Sectiunile cu heading + descriere nu mai imping titlul in dreapta */
+            #servicii .mb-20,
+            #portofoliu .mb-20,
+            #preturi .mb-20 {
+                align-items: flex-start !important;
+                text-align: left !important;
+            }
+
+            #servicii .mb-20 h2,
+            #servicii .mb-20 p,
+            #portofoliu .mb-20 h2,
+            #portofoliu .mb-20 p,
+            #preturi .mb-20 h2,
+            #preturi .mb-20 p {
+                width: 100% !important;
+                max-width: 100% !important;
+                text-align: left !important;
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+            }
+
+            /* Portofoliu: toate cardurile au textul la stanga pe telefon */
+            .portfolio-card,
+            .portfolio-card > div,
+            .portfolio-card .w-full,
+            .portfolio-card .md\:text-right,
+            .portfolio-card .md\:items-end {
+                text-align: left !important;
+                align-items: flex-start !important;
+            }
+
+            .portfolio-card h3,
+            .portfolio-card p,
+            .portfolio-card span,
+            .portfolio-card a {
+                text-align: left !important;
+            }
+
+            /* Sectiunea despre: text uniform la stanga */
+            #despre,
+            #despre h2,
+            #despre p,
+            #despre div {
+                text-align: left !important;
+            }
+
+            /* Preturi: continutul cardurilor uniform */
+            #preturi .bento-card,
+            #preturi .bento-card h3,
+            #preturi .bento-card p,
+            #preturi .bento-card div {
+                text-align: left !important;
+            }
+
+            /* Contact ramane coerent, dar textul mic nu se imprastie */
+            #contact .mt-20 span {
+                text-align: center !important;
+            }
+
+            /* Footer mai curat pe mobil */
+            footer .max-w-\[1600px\] {
+                align-items: center !important;
+            }
+        }
+
     </style>
 </head>
 <body class="antialiased selection:bg-yellow selection:text-black">
