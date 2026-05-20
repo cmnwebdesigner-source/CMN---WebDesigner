@@ -2327,6 +2327,26 @@
             if (termsBtns.length && termsModal && closeTerms) {
                 const openTermsModal = (e) => {
                     e.preventDefault();
+
+                    // Dacă utilizatorul apasă Termenii din meniul mobil,
+                    // meniul hamburger se închide automat înainte să apară modalul.
+                    const mobileMenuEl = document.getElementById('mobile-menu');
+                    const mobileBtnEl = document.getElementById('mobile-btn');
+                    if (mobileMenuEl && mobileMenuEl.classList.contains('opacity-100')) {
+                        mobileMenuEl.classList.add('opacity-0', 'pointer-events-none');
+                        mobileMenuEl.classList.remove('opacity-100', 'pointer-events-auto');
+
+                        if (mobileBtnEl) {
+                            const menuLines = mobileBtnEl.querySelectorAll('span');
+                            if (menuLines[0]) menuLines[0].style.transform = 'none';
+                            if (menuLines[1]) {
+                                menuLines[1].style.width = '20px';
+                                menuLines[1].style.transform = 'none';
+                            }
+                            mobileBtnEl.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+
                     termsModal.classList.remove('opacity-0', 'pointer-events-none');
                     termsModal.classList.add('opacity-100', 'pointer-events-auto');
                     document.body.style.overflow = 'hidden';
@@ -2412,6 +2432,13 @@
             const lines = mobileBtn.querySelectorAll('span');
             const mobileLinks = document.querySelectorAll('.mobile-link');
             let isMenuOpen = false;
+
+            const termsBtnMobile = document.getElementById('terms-btn-mobile');
+            if (termsBtnMobile) {
+                termsBtnMobile.addEventListener('click', () => {
+                    isMenuOpen = false;
+                });
+            }
 
             function toggleMenu() {
                 isMenuOpen = !isMenuOpen;
@@ -2500,4 +2527,3 @@
     </script>
 </body>
 </html>
-
