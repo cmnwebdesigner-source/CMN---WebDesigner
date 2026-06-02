@@ -3,8 +3,8 @@
 
   const $ = (id) => document.getElementById(id);
 
-  const els = {
-    form: $("businessCardForm"),
+  const el = {
+    form: $("cmnForm"),
     fullName: $("fullName"),
     role: $("role"),
     company: $("company"),
@@ -14,18 +14,18 @@
     social: $("social"),
     address: $("address"),
     slogan: $("slogan"),
-    templateStyle: $("templateStyle"),
+    template: $("template"),
     primaryColor: $("primaryColor"),
     textColor: $("textColor"),
     cardBg: $("cardBg"),
     logoUpload: $("logoUpload"),
     businessCard: $("businessCard"),
-    cardMonogram: $("cardMonogram"),
+    cardMono: $("cardMono"),
     cardLogoImg: $("cardLogoImg"),
-    cardName: $("cardName"),
-    cardRole: $("cardRole"),
     cardCompany: $("cardCompany"),
     cardSlogan: $("cardSlogan"),
+    cardName: $("cardName"),
+    cardRole: $("cardRole"),
     cardPhone: $("cardPhone"),
     cardEmail: $("cardEmail"),
     cardWebsite: $("cardWebsite"),
@@ -33,10 +33,11 @@
     cardAddress: $("cardAddress"),
     downloadPng: $("downloadPng"),
     downloadPdf: $("downloadPdf"),
-    resetForm: $("resetForm"),
+    resetBtn: $("resetBtn"),
+    toast: $("toast"),
   };
 
-  const defaults = {
+  const fallback = {
     fullName: "Numele Tău",
     role: "Funcție / Profesie",
     company: "CMN WebDesigner",
@@ -44,197 +45,237 @@
     email: "contact@firma.ro",
     website: "www.firma.ro",
     social: "@brandul_tau",
-    address: "București, România",
+    address: "Brașov, România",
     slogan: "Design premium pentru afaceri moderne",
-    templateStyle: "blackGold",
+    template: "blackGold",
     primaryColor: "#FFE600",
     textColor: "#FFFFFF",
     cardBg: "#050505",
   };
 
+  const presets = {
+    blackGold: { primary: "#FFE600", text: "#FFFFFF", bg: "#050505" },
+    luxury: { primary: "#FFE600", text: "#FFFFFF", bg: "#080500" },
+    midnight: { primary: "#FFE600", text: "#FFFFFF", bg: "#0A0A0A" },
+    clean: { primary: "#111111", text: "#111111", bg: "#FFFFFF" },
+    white: { primary: "#CCB800", text: "#111111", bg: "#F7F7F2" },
+  };
+
   let uploadedLogo = "";
+  let toastTimer = null;
 
-  function safeValue(input, fallback) {
-    const value = (input?.value || "").trim();
-    return value || fallback;
+  function value(input, backup) {
+    const text = String(input?.value || "").trim();
+    return text || backup;
   }
 
-  function initialsFrom(name, company) {
-    const raw = (name || company || "CMN").replace(/[^\p{L}\p{N}\s]/gu, " ").trim();
-    const words = raw.split(/\s+/).filter(Boolean);
-    if (!words.length) return "CMN";
-    if (words.length === 1) return words[0].slice(0, 3).toUpperCase();
-    return (words[0][0] + words[1][0]).toUpperCase();
+  function normalizeWebsite(text) {
+    return String(text || "")
+      .trim()
+      .replace(/^https?:\/\//i, "")
+      .replace(/^www\./i, "www.")
+      .replace(/\/$/, "");
   }
 
-  function normalizeWebsite(value) {
-    return String(value || "").replace(/^https?:\/\//i, "").replace(/\/$/, "");
+  function makeInitials(name, company) {
+    const raw = String(name || company || "CMN")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-zA-Z0-9\s]/g, " ")
+      .trim();
+
+    const parts = raw.split(/\s+/).filter(Boolean);
+    if (!parts.length) return "CMN";
+    if (parts.length === 1) return parts[0].slice(0, 3).toUpperCase();
+    return `${parts[0][0]}${parts[1][0]}`.toUpperCase();
   }
 
-  function setCardClass(template) {
-    els.businessCard.classList.remove("template-minimalWhite", "template-modernDark", "template-luxuryGold", "template-cleanBusiness");
-    if (template !== "blackGold") els.businessCard.classList.add(`template-${template}`);
+  function clearTemplateClasses() {
+    el.businessCard.classList.remove("template-luxury", "template-midnight", "template-clean", "template-white");
   }
 
-  function readableTextForTemplate(template, chosenText) {
-    if (template === "minimalWhite" || template === "cleanBusiness") return "#111111";
-    return chosenText || defaults.textColor;
-  }
-
-  function updatePreview() {
-    const fullName = safeValue(els.fullName, defaults.fullName);
-    const company = safeValue(els.company, defaults.company);
-    const template = els.templateStyle.value || defaults.templateStyle;
-    const primary = els.primaryColor.value || defaults.primaryColor;
-    const text = readableTextForTemplate(template, els.textColor.value || defaults.textColor);
-    const bg = els.cardBg.value || defaults.cardBg;
-
-    els.cardName.textContent = fullName;
-    els.cardRole.textContent = safeValue(els.role, defaults.role);
-    els.cardCompany.textContent = company;
-    els.cardSlogan.textContent = safeValue(els.slogan, defaults.slogan);
-    els.cardPhone.textContent = safeValue(els.phone, defaults.phone);
-    els.cardEmail.textContent = safeValue(els.email, defaults.email);
-    els.cardWebsite.textContent = normalizeWebsite(safeValue(els.website, defaults.website));
-    els.cardSocial.textContent = safeValue(els.social, defaults.social);
-    els.cardAddress.textContent = safeValue(els.address, defaults.address);
-    els.cardMonogram.textContent = initialsFrom(fullName, company);
-
-    setCardClass(template);
-    els.businessCard.style.setProperty("--card-primary", primary);
-    els.businessCard.style.setProperty("--card-text", text);
-    els.businessCard.style.setProperty("--card-bg", bg);
-
-    if (uploadedLogo) {
-      els.cardLogoImg.src = uploadedLogo;
-      els.cardLogoImg.hidden = false;
-      els.cardMonogram.hidden = true;
-    } else {
-      els.cardLogoImg.hidden = true;
-      els.cardLogoImg.removeAttribute("src");
-      els.cardMonogram.hidden = false;
+  function applyTemplateClass(template) {
+    clearTemplateClasses();
+    if (template !== "blackGold") {
+      el.businessCard.classList.add(`template-${template}`);
     }
   }
 
-  function applyTemplateDefaults(template) {
-    const presets = {
-      blackGold: { primary: "#FFE600", text: "#FFFFFF", bg: "#050505" },
-      minimalWhite: { primary: "#CCB800", text: "#111111", bg: "#F7F7F2" },
-      modernDark: { primary: "#FFE600", text: "#FFFFFF", bg: "#0A0A0A" },
-      luxuryGold: { primary: "#FFE600", text: "#FFFFFF", bg: "#090700" },
-      cleanBusiness: { primary: "#111111", text: "#111111", bg: "#FFFFFF" },
-    };
+  function setCardColors(template) {
+    const primary = el.primaryColor.value || fallback.primaryColor;
+    const text = (template === "clean" || template === "white") ? "#111111" : (el.textColor.value || fallback.textColor);
+    const bg = el.cardBg.value || fallback.cardBg;
+
+    el.businessCard.style.setProperty("--card-primary", primary);
+    el.businessCard.style.setProperty("--card-text", text);
+    el.businessCard.style.setProperty("--card-bg", bg);
+  }
+
+  function updatePreview() {
+    const fullName = value(el.fullName, fallback.fullName);
+    const company = value(el.company, fallback.company);
+    const template = el.template.value || fallback.template;
+
+    applyTemplateClass(template);
+    setCardColors(template);
+
+    el.cardName.textContent = fullName;
+    el.cardRole.textContent = value(el.role, fallback.role);
+    el.cardCompany.textContent = company;
+    el.cardSlogan.textContent = value(el.slogan, fallback.slogan);
+    el.cardPhone.textContent = value(el.phone, fallback.phone);
+    el.cardEmail.textContent = value(el.email, fallback.email);
+    el.cardWebsite.textContent = normalizeWebsite(value(el.website, fallback.website));
+    el.cardSocial.textContent = value(el.social, fallback.social);
+    el.cardAddress.textContent = value(el.address, fallback.address);
+    el.cardMono.textContent = makeInitials(fullName, company);
+
+    if (uploadedLogo) {
+      el.cardLogoImg.src = uploadedLogo;
+      el.cardLogoImg.hidden = false;
+      el.cardMono.hidden = true;
+    } else {
+      el.cardLogoImg.hidden = true;
+      el.cardLogoImg.removeAttribute("src");
+      el.cardMono.hidden = false;
+    }
+  }
+
+  function applyPreset(template) {
     const preset = presets[template] || presets.blackGold;
-    els.primaryColor.value = preset.primary;
-    els.textColor.value = preset.text;
-    els.cardBg.value = preset.bg;
+    el.primaryColor.value = preset.primary;
+    el.textColor.value = preset.text;
+    el.cardBg.value = preset.bg;
     updatePreview();
   }
 
   function showToast(message) {
-    let toast = document.querySelector(".cmn-toast");
-    if (!toast) {
-      toast = document.createElement("div");
-      toast.className = "cmn-toast";
-      document.body.appendChild(toast);
+    el.toast.textContent = message;
+    el.toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.toast.classList.remove("show"), 2400);
+  }
+
+  function slug(text) {
+    return String(text || "carte-vizita")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "carte-vizita";
+  }
+
+  async function waitForAssets() {
+    if (document.fonts?.ready) {
+      await document.fonts.ready;
     }
-    toast.textContent = message;
-    toast.classList.add("show");
-    window.clearTimeout(showToast.timer);
-    showToast.timer = window.setTimeout(() => toast.classList.remove("show"), 2300);
+
+    const images = Array.from(el.businessCard.querySelectorAll("img"));
+    await Promise.all(images.map((img) => {
+      if (!img.src || img.hidden || img.complete) return Promise.resolve();
+      return new Promise((resolve) => {
+        img.onload = resolve;
+        img.onerror = resolve;
+      });
+    }));
   }
 
   async function captureCard() {
+    updatePreview();
+
     if (!window.html2canvas) {
-      showToast("Se încarcă PNG-ul. Încearcă iar.");
+      showToast("Se încarcă exportul. Mai apasă o dată în 2 secunde.");
       return null;
     }
-    if (document.fonts?.ready) await document.fonts.ready;
 
-    const canvas = await window.html2canvas(els.businessCard, {
-      scale: Math.min(3, Math.max(2, window.devicePixelRatio || 1)),
+    await waitForAssets();
+
+    const dpr = window.devicePixelRatio || 1;
+    const scale = Math.min(4, Math.max(3, dpr * 2));
+
+    return window.html2canvas(el.businessCard, {
+      backgroundColor: null,
       useCORS: true,
       allowTaint: true,
-      backgroundColor: null,
       logging: false,
+      scale,
+      scrollX: 0,
+      scrollY: -window.scrollY,
       removeContainer: true,
     });
-
-    return canvas;
-  }
-
-  function fileNameBase() {
-    const raw = safeValue(els.fullName, "carte-vizita")
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
-    return raw || "carte-vizita";
   }
 
   async function downloadPng() {
     try {
-      updatePreview();
+      el.downloadPng.disabled = true;
+      el.downloadPng.textContent = "Se generează...";
+
       const canvas = await captureCard();
       if (!canvas) return;
+
       const link = document.createElement("a");
-      link.download = `${fileNameBase()}-carte-vizita.png`;
-      link.href = canvas.toDataURL("image/png");
+      link.download = `${slug(value(el.fullName, "carte-vizita"))}-carte-vizita.png`;
+      link.href = canvas.toDataURL("image/png", 1);
       document.body.appendChild(link);
       link.click();
       link.remove();
-      showToast("PNG descărcat.");
+      showToast("PNG descărcat la calitate mare.");
     } catch (error) {
       console.error(error);
       showToast("Nu s-a putut descărca PNG-ul.");
+    } finally {
+      el.downloadPng.disabled = false;
+      el.downloadPng.textContent = "Descarcă PNG";
     }
   }
 
   async function downloadPdf() {
     try {
-      updatePreview();
+      el.downloadPdf.disabled = true;
+      el.downloadPdf.textContent = "Se generează...";
+
       const canvas = await captureCard();
       if (!canvas) return;
+
       if (!window.jspdf?.jsPDF) {
-        showToast("Se încarcă PDF-ul. Încearcă iar.");
+        showToast("Se încarcă PDF-ul. Mai apasă o dată în 2 secunde.");
         return;
       }
-      const imgData = canvas.toDataURL("image/png");
+
       const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF({ orientation: "landscape", unit: "mm", format: [85, 55], compress: true });
-      pdf.addImage(imgData, "PNG", 0, 0, 85, 55, undefined, "FAST");
-      pdf.save(`${fileNameBase()}-carte-vizita.pdf`);
+      const pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "mm",
+        format: [90, 55],
+        compress: true,
+      });
+
+      const image = canvas.toDataURL("image/png", 1);
+      pdf.addImage(image, "PNG", 0, 0, 90, 55, undefined, "FAST");
+      pdf.save(`${slug(value(el.fullName, "carte-vizita"))}-carte-vizita.pdf`);
       showToast("PDF descărcat.");
     } catch (error) {
       console.error(error);
       showToast("Nu s-a putut descărca PDF-ul.");
+    } finally {
+      el.downloadPdf.disabled = false;
+      el.downloadPdf.textContent = "Descarcă PDF";
     }
-  }
-
-  function resetForm() {
-    els.form.reset();
-    uploadedLogo = "";
-    els.logoUpload.value = "";
-    els.templateStyle.value = defaults.templateStyle;
-    els.primaryColor.value = defaults.primaryColor;
-    els.textColor.value = defaults.textColor;
-    els.cardBg.value = defaults.cardBg;
-    updatePreview();
-    showToast("Resetat.");
   }
 
   function handleLogoUpload(event) {
     const file = event.target.files?.[0];
     if (!file) return;
+
     if (!file.type.startsWith("image/")) {
       showToast("Încarcă o imagine validă.");
-      els.logoUpload.value = "";
+      el.logoUpload.value = "";
       return;
     }
-    if (file.size > 4 * 1024 * 1024) {
-      showToast("Logo-ul este prea mare.");
-      els.logoUpload.value = "";
+
+    if (file.size > 5 * 1024 * 1024) {
+      showToast("Logo-ul este prea mare. Max 5MB.");
+      el.logoUpload.value = "";
       return;
     }
 
@@ -244,19 +285,42 @@
       updatePreview();
       showToast("Logo adăugat.");
     };
-    reader.onerror = () => showToast("Logo-ul nu s-a putut încărca.");
+    reader.onerror = () => showToast("Nu s-a putut încărca logo-ul.");
     reader.readAsDataURL(file);
   }
 
-  [els.fullName, els.role, els.company, els.phone, els.email, els.website, els.social, els.address, els.slogan, els.primaryColor, els.textColor, els.cardBg].forEach((input) => {
-    input?.addEventListener("input", updatePreview);
-  });
+  function resetAll() {
+    el.form.reset();
+    uploadedLogo = "";
+    el.logoUpload.value = "";
+    el.template.value = fallback.template;
+    el.primaryColor.value = fallback.primaryColor;
+    el.textColor.value = fallback.textColor;
+    el.cardBg.value = fallback.cardBg;
+    updatePreview();
+    showToast("Resetat.");
+  }
 
-  els.templateStyle.addEventListener("change", (event) => applyTemplateDefaults(event.target.value));
-  els.logoUpload.addEventListener("change", handleLogoUpload);
-  els.downloadPng.addEventListener("click", downloadPng);
-  els.downloadPdf.addEventListener("click", downloadPdf);
-  els.resetForm.addEventListener("click", resetForm);
+  [
+    el.fullName,
+    el.role,
+    el.company,
+    el.phone,
+    el.email,
+    el.website,
+    el.social,
+    el.address,
+    el.slogan,
+    el.primaryColor,
+    el.textColor,
+    el.cardBg,
+  ].forEach((input) => input.addEventListener("input", updatePreview));
+
+  el.template.addEventListener("change", () => applyPreset(el.template.value));
+  el.logoUpload.addEventListener("change", handleLogoUpload);
+  el.downloadPng.addEventListener("click", downloadPng);
+  el.downloadPdf.addEventListener("click", downloadPdf);
+  el.resetBtn.addEventListener("click", resetAll);
 
   updatePreview();
 })();
