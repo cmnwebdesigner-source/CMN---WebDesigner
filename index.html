@@ -1884,6 +1884,105 @@
             }
         }
 
+
+        /* --- Mini trust stats centrat sub cardurile principale --- */
+        .mini-trust-stats {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .mini-trust-box {
+            width: fit-content;
+            max-width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.8rem 1.15rem;
+            border-radius: 999px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.022));
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05), 0 12px 26px rgba(0,0,0,0.22);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .mini-trust-box:hover {
+            transform: translateY(-3px);
+            border-color: rgba(255, 230, 0, 0.26);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 16px 34px rgba(255,230,0,0.045);
+        }
+
+        .mini-trust-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-width: 0;
+        }
+
+        .mini-trust-divider {
+            width: 1px;
+            height: 1.7rem;
+            background: rgba(255, 255, 255, 0.10);
+            flex: 0 0 auto;
+        }
+
+        .mini-trust-number {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.25rem;
+            line-height: 1;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.04em;
+            white-space: nowrap;
+        }
+
+        .mini-trust-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.58rem;
+            line-height: 1.12;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.11em;
+            color: rgba(255,255,255,0.48);
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 767px) {
+            .mini-trust-stats {
+                margin-top: 0.72rem !important;
+            }
+
+            .mini-trust-box {
+                gap: 0.55rem;
+                padding: 0.52rem 0.66rem;
+                border-radius: 999px;
+            }
+
+            .mini-trust-item {
+                gap: 0.28rem;
+            }
+
+            .mini-trust-divider {
+                height: 1.25rem;
+            }
+
+            .mini-trust-number {
+                font-size: 0.86rem;
+                letter-spacing: -0.035em;
+            }
+
+            .mini-trust-label {
+                font-size: 0.36rem;
+                letter-spacing: 0.065em;
+                line-height: 1.05;
+            }
+        }
+
+
     </style>
 </head>
 <body class="antialiased selection:bg-yellow selection:text-black">
@@ -2156,22 +2255,38 @@
                 </div>
 
                 <!-- Stats Premium Grid -->
-                <div class="grid grid-cols-2 gap-4 reveal-up reveal-delay-1">
-                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
-                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2">100<span class="text-yellow">%</span></span>
-                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Design Custom</span>
+                <div class="reveal-up reveal-delay-1">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                            <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2">100<span class="text-yellow">%</span></span>
+                            <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Design Custom</span>
+                        </div>
+                        <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                            <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2"><i class="fas fa-mobile-alt text-yellow"></i></span>
+                            <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Mobile First</span>
+                        </div>
+                        <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                            <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2">SEO</span>
+                            <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Structură Curată</span>
+                        </div>
+                        <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
+                            <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2"><i class="fas fa-headset text-yellow"></i></span>
+                            <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Suport Dedicat</span>
+                        </div>
                     </div>
-                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
-                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2"><i class="fas fa-mobile-alt text-yellow"></i></span>
-                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Mobile First</span>
-                    </div>
-                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
-                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2">SEO</span>
-                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Structură Curată</span>
-                    </div>
-                    <div class="bg-[#080808] border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center hover:-translate-y-2 hover:border-yellow/30 hover:shadow-[0_10px_30px_rgba(255,230,0,0.05)] transition-all duration-300">
-                        <span class="text-4xl md:text-5xl font-display font-bold text-white mb-2"><i class="fas fa-headset text-yellow"></i></span>
-                        <span class="text-[10px] md:text-xs font-sans uppercase tracking-[0.2em] text-gray-500">Suport Dedicat</span>
+
+                    <div class="mini-trust-stats">
+                        <div class="mini-trust-box">
+                            <div class="mini-trust-item">
+                                <span class="mini-trust-number">+<span class="count-up" data-target="7">0</span></span>
+                                <span class="mini-trust-label">Clienți mulțumiți</span>
+                            </div>
+                            <span class="mini-trust-divider" aria-hidden="true"></span>
+                            <div class="mini-trust-item">
+                                <span class="mini-trust-number">24<span class="text-yellow">/7</span></span>
+                                <span class="mini-trust-label">Disponibilitate</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -2492,6 +2607,50 @@
             }, observerOptions);
 
             revealElements.forEach(el => observer.observe(el));
+
+            // --- Counter pentru clienți mulțumiți ---
+            const countUpElements = document.querySelectorAll('.count-up');
+
+            const animateCountUp = (el) => {
+                if (el.dataset.counting === 'true') return;
+
+                const target = parseInt(el.dataset.target || '0', 10);
+                const duration = 900;
+                const startTime = performance.now();
+
+                el.dataset.counting = 'true';
+                el.textContent = '0';
+
+                const updateCounter = (now) => {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const value = Math.floor(progress * target);
+
+                    el.textContent = value.toString();
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        el.textContent = target.toString();
+                        el.dataset.counting = 'false';
+                    }
+                };
+
+                requestAnimationFrame(updateCounter);
+            };
+
+            if (countUpElements.length) {
+                const countObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateCountUp(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.35
+                });
+
+                countUpElements.forEach(el => countObserver.observe(el));
+            }
 
             // --- ScrollSpy pentru Navigare ---
             const sections = document.querySelectorAll("section[id]");
